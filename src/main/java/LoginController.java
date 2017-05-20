@@ -22,15 +22,9 @@ public class LoginController
     public TextField textField_username;
     public TextField textField_password;
 
-    public void initalize(){
-
-    }
-
+    public void initalize() {}
 
     public void open_register(ActionEvent event) throws Exception {
-
-
-
         Parent window3;
         window3 = (GridPane)FXMLLoader.load(getClass().getResource("register.fxml"));
 
@@ -41,6 +35,5 @@ public class LoginController
         mainWindow = (Stage)  ((Node)event.getSource()).getScene().getWindow();
 
         mainWindow.setScene(newScene);
-
     }
 }
