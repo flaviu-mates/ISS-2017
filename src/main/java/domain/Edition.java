@@ -1,5 +1,7 @@
 package domain;
 
+import org.omg.CORBA.INTERNAL;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -8,7 +10,7 @@ import java.util.Date;
 public class Edition implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "conference_id", referencedColumnName = "id")

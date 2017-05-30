@@ -8,7 +8,7 @@ import java.util.Date;
 public class Session implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "edition_id", referencedColumnName = "id")
