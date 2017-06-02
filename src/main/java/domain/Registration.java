@@ -9,11 +9,11 @@ import java.io.Serializable;
 @Embeddable
 public class Registration implements Serializable {
     @ManyToOne
-    @JoinColumn(name="user_id",referencedColumnName = "id")
+    @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name="edition_id",referencedColumnName = "id")
+    @JoinColumn(name="edition_id", referencedColumnName = "id")
     private Edition edition;
 
     @Column

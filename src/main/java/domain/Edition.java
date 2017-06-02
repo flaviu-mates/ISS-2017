@@ -33,6 +33,24 @@ public class Edition implements Serializable {
 
     public Edition() {}
 
+    public Edition(Integer id, String name, Date begin, Date end, Conference conference, Date deadline, Date paperDeadline) {
+        this.conference = conference;
+        this.name = name;
+        this.paperDeadline = paperDeadline;
+        this.deadline = deadline;
+        this.begin = begin;
+        this.end = end;
+    }
+
+    public Edition(String name, Date begin, Date end, Conference conference, Date deadline, Date paperDeadline) {
+        this.conference = conference;
+        this.name = name;
+        this.paperDeadline = paperDeadline;
+        this.deadline = deadline;
+        this.begin = begin;
+        this.end = end;
+    }
+
     public int getId() {
         return id;
     }

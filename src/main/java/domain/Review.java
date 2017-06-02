@@ -19,6 +19,19 @@ public class Review implements Serializable {
 
     public Review() {}
 
+    public Review(UserPaper userPaper, ReviewStatus reviewStatus, String comment) {
+        this.userPaper = userPaper;
+        this.reviewStatus = reviewStatus;
+        this.comment = comment;
+    }
+
+    public Review(String comment, ReviewStatus reviewStatus, User user, Paper paper) {
+        this.userPaper.setUser(user);
+        this.userPaper.setPaper(paper);
+        this.reviewStatus = reviewStatus;
+        this.comment = comment;
+    }
+
     public UserPaper getUserPaper() {
         return userPaper;
     }

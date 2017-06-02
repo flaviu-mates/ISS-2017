@@ -17,6 +17,11 @@ public class UserPaper implements Serializable {
 
     public UserPaper() {}
 
+    public UserPaper(User user, Paper paper) {
+        this.user = user;
+        this.paper = paper;
+    }
+
     public User getUser() {
         return user;
     }

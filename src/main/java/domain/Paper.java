@@ -28,6 +28,23 @@ public class Paper implements Serializable {
 
     public Paper() {}
 
+    public Paper(Integer id, PaperStatus paperStatus, String title, String topic, Session session, User user) {
+        this.id = id;
+        this.user = user;
+        this.session = session;
+        this.paperStatus = paperStatus;
+        this.title = title;
+        this.topic = topic;
+    }
+
+    public Paper(PaperStatus paperStatus, String title, String topic, Session session, User user) {
+        this.user = user;
+        this.session = session;
+        this.paperStatus = paperStatus;
+        this.title = title;
+        this.topic = topic;
+    }
+
     public int getId() {
         return id;
     }

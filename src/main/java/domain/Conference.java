@@ -14,6 +14,15 @@ public class Conference implements Serializable {
 
     public Conference() {}
 
+    public Conference(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Conference(String name) {
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

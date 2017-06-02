@@ -22,6 +22,19 @@ public class Session implements Serializable {
 
     public Session() {}
 
+    public Session(Integer id, Date date, String location, Edition edition) {
+        this.id = id;
+        this.date = date;
+        this.location = location;
+        this.edition = edition;
+    }
+
+    public Session(Date date, String location, Edition edition) {
+        this.date = date;
+        this.location = location;
+        this.edition = edition;
+    }
+
     public int getId() {
         return id;
     }
