@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import server.ServerImpl;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -15,7 +14,7 @@ import java.rmi.registry.Registry;
 public class MainClient extends Application  {
     @Override
     public void start(Stage stage) throws Exception {
-//        try {
+        try {
             String name = "CMS";
             Registry registry = LocateRegistry.getRegistry("localhost");
             IServerController server = (IServerController) registry.lookup(name);
@@ -34,9 +33,9 @@ public class MainClient extends Application  {
             Scene scene = new Scene(pane);
             stage.setScene(scene);
             stage.show();
-//        } catch (Exception e) {
-//            System.err.println("Client exception: " + e);
-//        }
+        } catch (Exception e) {
+            System.err.println("Client exception: " + e);
+        }
     }
 
     public static void main(String[] args) {

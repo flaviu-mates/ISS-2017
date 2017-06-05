@@ -14,9 +14,14 @@ import java.util.List;
 public class ClientImpl extends UnicastRemoteObject implements IClientController {
 
     private IServerController server;
+    private User loggedUser;
 
     public ClientImpl(IServerController server) throws RemoteException {
         this.server = server;
+    }
+
+    public User getLoggedUser() {
+        return this.loggedUser;
     }
 
     public void addUser(User user) throws Exception {
@@ -72,15 +77,15 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
     }
 
     public User login(String username, String password) throws Exception {
-        User user = new User(username, password);
-        return server.login(user, this);
+        loggedUser = new User(username, password);
+        return server.login(loggedUser, this);
     }
 
-    public void logout(String username) throws Exception {
+    public void logout(String username) {
         try {
             server.logout(username);
         } catch (Exception ex) {
-            throw new Exception("Error at logout!");
+            this.loggedUser = new User();
         }
     }
 

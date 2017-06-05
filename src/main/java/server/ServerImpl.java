@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
@@ -40,6 +41,8 @@ public class ServerImpl implements IServerController {
         this.reviewService= reviewService;
         this.registrationService = registrationService;
         this.sessionChairService = sessionChairService;
+
+        this.clientsMap = new ConcurrentHashMap<>();
     }
 
     @Override
@@ -68,21 +71,21 @@ public class ServerImpl implements IServerController {
     }
 
     public User login(User user, IClientController client) throws RemoteException {
-        User existsUser = userService.findUser(user);
+        User loggedUser = userService.findUser(user);
 
         //invalid user
-        if (existsUser == null) {
+        if (loggedUser == null) {
             throw new RemoteException("Invalid username/password");
         }
 
         //already logged in
-        if (clientsMap.get(user.getUsername()) != null) {
+        if (clientsMap.containsKey(loggedUser.getUsername())) {
             throw new RemoteException("User is already logged in");
         }
 
         //we save the user in loggedClients HashMap
-        clientsMap.put(user.getUsername(), client);
-        return existsUser;
+        clientsMap.put(loggedUser.getUsername(), client);
+        return loggedUser;
     }
 
     @Override

@@ -97,6 +97,32 @@ public class UserRepository implements IRepository<Integer, User> {
         return null;
     }
 
+    public User findUser(String userName, String userPassword)
+    {
+        Connection con = dbutils.getConnection();
+
+        try (PreparedStatement preStmt = con.prepareStatement("select * from users where username=? and password=?")) {
+            preStmt.setString(1, userName);
+            preStmt.setString(2, userPassword);
+            try (ResultSet result = preStmt.executeQuery()) {
+                if (result.next()) {
+                    int id = result.getInt("id");
+                    String email = result.getString("email");
+                    String firstname = result.getString("firstname");
+                    String lastname = result.getString("lastname");
+                    String password = result.getString("password");
+                    String tag = result.getString("tag");
+                    String username = result.getString("username");
+
+                    return new User(id, username, password, email, firstname, lastname,tag);
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error DB " + ex);
+        }
+        return null;
+    }
+
     @Override
     public List<User> findAll() {
         Connection con=dbutils.getConnection();

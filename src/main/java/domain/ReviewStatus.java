@@ -7,5 +7,6 @@ public enum ReviewStatus {
     BorderlinePaper,
     WeakReject,
     Reject,
-    StrongReject
+    StrongReject,
+    WaitingForConfirmation
 }

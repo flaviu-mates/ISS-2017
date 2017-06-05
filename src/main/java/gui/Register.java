@@ -42,9 +42,10 @@ public class Register
     public void initialize()
     {
         this.comboBoxUserTypes.getItems().removeAll();
-        this.comboBoxUserTypes.getItems().add(0, "Session Chair");
-        this.comboBoxUserTypes.getItems().add(1, "Speaker");
-        this.comboBoxUserTypes.getItems().add(2, "Listener");
+        this.comboBoxUserTypes.getItems().add(0, "Author");
+        this.comboBoxUserTypes.getItems().add(1, "Participant");
+        this.comboBoxUserTypes.getItems().add(2, "Reviewer");
+        this.comboBoxUserTypes.getItems().add(3, "Session Chair");
     }
 
     protected void warning(String message)
@@ -68,7 +69,6 @@ public class Register
         try {
             this.clientCtrl.addUser(user);
         } catch (Exception e) {
-            // TODO be more specific
             this.warning("Invalid user information");
             return;
         }

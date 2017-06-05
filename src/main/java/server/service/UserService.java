@@ -20,11 +20,7 @@ public class UserService extends AbstractService<Integer, User>{
         return repository;
     }
 
-    /**
-     * TODO: Implement method
-     */
     public User findUser(User user) {
-        return new User();
+        return this.repository.findUser(user.getUsername(), user.getPassword());
     }
-
 }
