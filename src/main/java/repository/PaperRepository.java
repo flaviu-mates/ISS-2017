@@ -42,15 +42,14 @@ public class PaperRepository implements IRepository<Integer, Paper> {
     @Override
     public void save(Paper entity) {
         Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("insert into papers(id,paperStatus, title, topic, session_id, user_id)" +
-                " values (?,?,?,?,?,?)")){
+        try(PreparedStatement preStmt=con.prepareStatement("insert into papers(paperStatus, title, topic, session_id, user_id)" +
+                " values (?,?,?,?,?)")){
 
-            preStmt.setInt(1,entity.getId());
-            preStmt.setInt(2, entity.getPaperStatus().ordinal());
-            preStmt.setString(3, entity.getTitle());
-            preStmt.setString(4, entity.getTopic());
-            preStmt.setInt(5, entity.getSession().getId());
-            preStmt.setInt(6, entity.getUser().getId());
+            preStmt.setInt(1, entity.getPaperStatus().ordinal());
+            preStmt.setString(2, entity.getTitle());
+            preStmt.setString(3, entity.getTopic());
+            preStmt.setInt(4, entity.getSession().getId());
+            preStmt.setInt(5, entity.getUser().getId());
 
             int result=preStmt.executeUpdate();
         }catch (SQLException ex){

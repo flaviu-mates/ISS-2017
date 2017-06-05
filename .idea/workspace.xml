@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c740eb51-9505-437b-94e0-c25b650f4bbc" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/AuthorView.java" afterPath="$PROJECT_DIR$/src/main/java/gui/AuthorView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/CreateConferenceView.java" afterPath="$PROJECT_DIR$/src/main/java/gui/CreateConferenceView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/CreateEditionView.java" afterPath="$PROJECT_DIR$/src/main/java/gui/CreateEditionView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/CreateView.java" afterPath="$PROJECT_DIR$/src/main/java/gui/CreateView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/LoginController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/MyPaperView.java" afterPath="$PROJECT_DIR$/src/main/java/gui/MyPaperView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/ParticipantView.java" afterPath="$PROJECT_DIR$/src/main/java/gui/ParticipantView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/RegisterController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/RegisterController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/ReviewerAssignmentController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/ReviewerAssignmentController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/ReviewerController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/ReviewerController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/ReviewerReviewsController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/ReviewerReviewsController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/SessionAssignController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/SessionAssignController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/SessionRequestController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/SessionRequestController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GUI/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/gui/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/author.fxml" afterPath="$PROJECT_DIR$/src/main/resources/author.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/createConf.fxml" afterPath="$PROJECT_DIR$/src/main/resources/createConf.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/createEdition.fxml" afterPath="$PROJECT_DIR$/src/main/resources/createEdition.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/createView.fxml" afterPath="$PROJECT_DIR$/src/main/resources/createView.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/login.fxml" afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/myPaper.fxml" afterPath="$PROJECT_DIR$/src/main/resources/myPaper.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/participant.fxml" afterPath="$PROJECT_DIR$/src/main/resources/participant.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/register.fxml" afterPath="$PROJECT_DIR$/src/main/resources/register.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/EditionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/EditionRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -69,7 +51,30 @@
     <favorites_list name="CodeIris Favorites" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/repository/UserRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="41" column="80" selection-start-line="41" selection-start-column="80" selection-end-line="41" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/repository/SessionRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -483,16 +488,16 @@
         <option value="$PROJECT_DIR$/src/main/java/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/domain/Session.java" />
         <option value="$PROJECT_DIR$/src/main/java/jdbc/JdbcUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/EditionRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/RegistrationRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/SessionChairRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/ReviewRepository.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/server/MainServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/EditionRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" />
       </list>
     </option>
   </component>
@@ -706,15 +711,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/client/MainClient.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/login.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/register.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database.db</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/client/MainClient.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/login.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/register.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -722,25 +719,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/LoginController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/RegisterController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerAssignmentController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerReviewsController$1.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerReviewsController$2.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerReviewsController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/SessionAssignController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/SessionRequestController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/UserController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/ReviewerAssignmentView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/ReviewerReviewsView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/ReviewerView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/SessionAssignView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/SessionRequestView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/UserView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/exemple2.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/GUI/LoginController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/GUI/RegisterController.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -748,12 +726,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/LoginController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/Main.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/RegisterController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/LoginController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/RegisterController.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1226,7 +1198,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1236,7 +1208,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41220558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="0" width="1908" height="1028" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21081081" sideWeight="0.49019608" order="6" side_tool="false" content_ui="combo" />
@@ -1330,42 +1302,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/service/ConferenceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#588#589#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/service/SessionChairService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#640#641#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/service/RegistrationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#640#641#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/service/PaperService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1576,88 +1512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/EditionRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-805">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/PaperRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2530">
-          <caret line="124" column="66" selection-start-line="124" selection-start-column="66" selection-end-line="124" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/RegistrationRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#266#267#0" expanded="false" />
-            <element signature="e#304#305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/ReviewRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1817">
-          <caret line="81" column="78" selection-start-line="81" selection-start-column="78" selection-end-line="81" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/SessionChairRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-          <folding>
-            <element signature="e#304#305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/SessionRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#486#487#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/jdbc/JdbcUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1776,10 +1630,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="161">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/CreateView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/CreateEditionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1792,11 +1670,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/CreateView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/CreateConferenceView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/EditionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483">
+          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/PaperRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/RegistrationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/ReviewRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1103">
+          <caret line="81" column="78" selection-start-line="81" selection-start-column="78" selection-end-line="81" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/SessionChairRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding>
+            <element signature="e#304#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="41" column="80" selection-start-line="41" selection-start-column="80" selection-end-line="41" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/SessionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

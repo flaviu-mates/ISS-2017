@@ -37,32 +37,30 @@ public class EditionRepository implements IRepository<Integer, Edition> {
     @Override
     public void save(Edition entity) {
         Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("insert into editions(id, begin, deadline, end, name, paperDeadline,conference_id)" +
-                " values (?,?,?,?,?,?,?)")){
-
-            preStmt.setInt(1,entity.getId());
+        try(PreparedStatement preStmt=con.prepareStatement("insert into editions(begin, deadline, end, name, paperDeadline,conference_id)" +
+                " values (?,?,?,?,?,?)")){
 
             java.util.Date date = entity.getBegin();
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-            preStmt.setDate(2,sqlDate);
+            preStmt.setDate(1,sqlDate);
 
             date = entity.getDeadline();
             sqlDate = new java.sql.Date(date.getTime());
 
-            preStmt.setDate(3,sqlDate);
+            preStmt.setDate(2,sqlDate);
 
             date = entity.getEnd();
             sqlDate = new java.sql.Date(date.getTime());
 
-            preStmt.setDate(4,sqlDate);
-            preStmt.setString(5,entity.getName());
+            preStmt.setDate(3,sqlDate);
+            preStmt.setString(4,entity.getName());
 
             date = entity.getPaperDeadline();
             sqlDate = new java.sql.Date(date.getTime());
 
-            preStmt.setDate(6,sqlDate);
-            preStmt.setInt(7,entity.getConference().getId());
+            preStmt.setDate(5,sqlDate);
+            preStmt.setInt(6,entity.getConference().getId());
 
             int result=preStmt.executeUpdate();
         }catch (SQLException ex){

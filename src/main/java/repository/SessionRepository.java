@@ -38,20 +38,17 @@ public class SessionRepository implements IRepository<Integer, Session> {
     public void save(Session entity) {
 
         Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("insert into sessions(id,date, location, edition_id)" +
-                " values (?,?, ?, ?)")){
-
-            preStmt.setInt(1,entity.getId());
+        try(PreparedStatement preStmt=con.prepareStatement("insert into sessions(date, location, edition_id)" +
+                " values (?, ?, ?)")){
 
             Date date = entity.getDate();
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-            preStmt.setDate(2,sqlDate);
+            preStmt.setDate(1,sqlDate);
 
-            preStmt.setString(3,entity.getLocation());
+            preStmt.setString(2,entity.getLocation());
 
-
-            preStmt.setInt(4, entity.getEdition().getId());
+            preStmt.setInt(3, entity.getEdition().getId());
 
             int result=preStmt.executeUpdate();
         }catch (SQLException ex){
