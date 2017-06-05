@@ -19,11 +19,11 @@ public class MainClient extends Application  {
                 .configure()
                 .build();
 
-//        try {
-        sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-//        } catch (Exception e) {
-//            StandardServiceRegistryBuilder.destroy(registry);
-//        }
+        try {
+            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        } catch (Exception e) {
+            StandardServiceRegistryBuilder.destroy(registry);
+        }
     }
 
     @Override
