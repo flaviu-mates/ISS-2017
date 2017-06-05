@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Udisteanu Elisei on 03/06/2017.
  */
-public class ReviewerReviewsController implements Initializable {
+public class ReviewerReviews implements Initializable {
 
     @FXML
     TableView tabel;

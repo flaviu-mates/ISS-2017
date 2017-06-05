@@ -1,49 +1,45 @@
 package client;
 
+import common.IServerController;
+import gui.Login;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import server.ServerImpl;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class MainClient extends Application  {
-    static SessionFactory sessionFactory;
-
-    static void initialize()
-    {
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
-
-        try {
-            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-        } catch (Exception e) {
-            StandardServiceRegistryBuilder.destroy(registry);
-        }
-    }
-
     @Override
-    public void start(Stage primaryStage) throws Exception
-    {
-        initialize();
+    public void start(Stage stage) throws Exception {
+//        try {
+            String name = "CMS";
+            Registry registry = LocateRegistry.getRegistry("localhost");
+            IServerController server = (IServerController) registry.lookup(name);
+            System.out.println("Successfully obtained a reference to remote server");
+            ClientImpl clientCtrl = new ClientImpl(server);
 
-        FXMLLoader fxml = new FXMLLoader();
-        fxml.setLocation(MainClient.class.getResource("../login.fxml"));
+            stage.setResizable(false);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainClient.class.getResource("../login.fxml"));
 
-        Stage stage = new Stage();
-        GridPane pane = fxml.load();
+            Pane pane = loader.load();
+            // inject the client controller
+            Login loginController = loader.getController();
+            loginController.setClientCtrl(clientCtrl);
 
-        stage.setScene(new Scene(pane));
-
-        stage.show();
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+            stage.show();
+//        } catch (Exception e) {
+//            System.err.println("Client exception: " + e);
+//        }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 }

@@ -1,5 +1,6 @@
 package gui;
 
+import client.ClientImpl;
 import domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class RegisterController
+public class Register
 {
     @FXML
     TextField textBoxUsername;
@@ -28,6 +29,14 @@ public class RegisterController
     ComboBox comboBoxUserTypes;
     @FXML
     Button buttonRegister;
+
+    private ClientImpl clientCtrl;
+
+    public void Register(ClientImpl clientCtrl) {}
+
+    public void setCtrl(ClientImpl clientCtrl) {
+        this.clientCtrl = clientCtrl;
+    }
 
     @FXML
     public void initialize()
@@ -47,6 +56,7 @@ public class RegisterController
         String userType = this.comboBoxUserTypes.getSelectionModel().selectedItemProperty().toString();
 
         User user = new User(username, password, email, firstname, lastname, userType);
+        // TODO insert new username
     }
 
     private void openLogin(ActionEvent event) throws Exception {

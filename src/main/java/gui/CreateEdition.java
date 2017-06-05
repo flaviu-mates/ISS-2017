@@ -11,7 +11,8 @@ import javafx.scene.control.TextField;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class CreateEditionView {
+public class CreateEdition
+{
     @FXML
     public DatePicker submissionDeadlineField;
     @FXML

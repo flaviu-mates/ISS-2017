@@ -15,7 +15,8 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class ParticipantView {
+public class Participant
+{
     @FXML
     private TableColumn<Edition, Date> endingDateColumn;
     @FXML

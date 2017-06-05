@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Udisteanu Elisei on 03/06/2017.
  */
-public class ReviewerController implements Initializable {
+public class Reviewer implements Initializable {
     @FXML
     TableView<Paper> availablePapers;
 

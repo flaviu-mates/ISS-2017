@@ -23,7 +23,6 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addUser(user);
     }
 
-
     public List<User> getAllUsers() throws RemoteException {
         return server.getAllUser();
     }

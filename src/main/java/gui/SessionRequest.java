@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Udisteanu Elisei on 03/06/2017.
  */
-public class SessionRequestController implements Initializable {
+public class SessionRequest implements Initializable {
 
 
     @FXML

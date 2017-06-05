@@ -14,7 +14,8 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class MyPaperView {
+public class MyPaper
+{
     @FXML
     private TableView<Paper> table;
     @FXML

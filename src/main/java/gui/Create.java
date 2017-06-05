@@ -9,7 +9,8 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class CreateView {
+public class Create
+{
     @FXML
     private Button createConf;
     @FXML

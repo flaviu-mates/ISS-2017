@@ -6,7 +6,8 @@ import javafx.scene.control.TextField;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class CreateConferenceView {
+public class CreateConference
+{
     @FXML
     public TextField confNameField;
 }

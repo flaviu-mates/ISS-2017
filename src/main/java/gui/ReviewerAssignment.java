@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Udisteanu Elisei on 03/06/2017.
  */
-public class ReviewerAssignmentController implements Initializable{
+public class ReviewerAssignment implements Initializable{
     public ObservableList<Paper> model;
     @FXML
     private ComboBox<String> reviewCombo;

@@ -13,7 +13,8 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class AuthorView {
+public class Author
+{
     @FXML
     private TextField titleText;
     @FXML

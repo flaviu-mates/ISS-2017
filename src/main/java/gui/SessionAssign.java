@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Udisteanu Elisei on 03/06/2017.
  */
-public class SessionAssignController implements Initializable {
+public class SessionAssign implements Initializable {
     @FXML
     ComboBox<String> combo;
     @FXML
