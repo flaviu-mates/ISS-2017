@@ -60,7 +60,7 @@ public class MainServer {
                                                       reviewService, registrationService, sessionChairService);
 
         try {
-            String name = "Triathlon";
+            String name = "CMS";
             LocateRegistry.createRegistry(1099);
             IServerController stub = (IServerController) UnicastRemoteObject.exportObject(serverImpl, 0);
             Registry registry = LocateRegistry.getRegistry();

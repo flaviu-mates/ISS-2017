@@ -24,12 +24,12 @@
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <children>
-                <TextField fx:id="textBox_username" layoutX="16.0" layoutY="34.0" prefHeight="25.0" prefWidth="130.0" promptText="username" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <PasswordField fx:id="textBox_password" layoutX="183.0" layoutY="34.0" prefHeight="25.0" prefWidth="130.0" promptText="password" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <TextField layoutX="75.0" layoutY="74.0" prefHeight="25.0" prefWidth="175.0" promptText="name" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <TextField layoutX="75.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" promptText="email" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <ComboBox fx:id="types" layoutX="77.0" layoutY="154.0" prefHeight="25.0" prefWidth="175.0" promptText="type of participant" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <Button fx:id="button_register" layoutX="77.0" layoutY="216.0" mnemonicParsing="false" onAction="#open_login" prefHeight="30.0" prefWidth="175.0" style="-fx-font-family: sans-serif; -fx-background-color: #4CAF50; -fx-border: 0; -fx-font-size: 14px; -fx-cursor: pointer;" text="REGISTER" textFill="WHITE" />
+                <TextField fx:id="textBoxUsername" layoutX="16.0" layoutY="34.0" prefHeight="25.0" prefWidth="130.0" promptText="username" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
+                <PasswordField fx:id="textBoxPassword" layoutX="183.0" layoutY="34.0" prefHeight="25.0" prefWidth="130.0" promptText="password" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
+                <TextField fx:id="textBoxName" layoutX="75.0" layoutY="74.0" prefHeight="25.0" prefWidth="175.0" promptText="name" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
+                <TextField fx:id="textBoxEmail" layoutX="75.0" layoutY="114.0" prefHeight="25.0" prefWidth="175.0" promptText="email" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
+                <ComboBox fx:id="comboBoxUserTypes" layoutX="77.0" layoutY="154.0" prefHeight="25.0" prefWidth="175.0" promptText="type of participant" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
+                <Button fx:id="buttonRegister" layoutX="77.0" layoutY="216.0" mnemonicParsing="false" onAction="#doRegister" prefHeight="30.0" prefWidth="175.0" style="-fx-font-family: sans-serif; -fx-background-color: #4CAF50; -fx-border: 0; -fx-font-size: 14px; -fx-cursor: pointer;" text="REGISTER" textFill="WHITE" />
             </children>
         </AnchorPane>
     </children>
