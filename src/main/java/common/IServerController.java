@@ -2,24 +2,26 @@ package common;
 
 import domain.*;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
-public interface IServerController {
+public interface IServerController extends Remote
+{
+    List<User> getAllUser() throws RemoteException;
 
-    List<User> getAllUser();
+    List<Edition> getAllEditions() throws RemoteException;
 
-    List<Edition> getAllEditions();
+    List<Review> getAllReviews() throws RemoteException;
 
-    List<Review> getAllReviews();
+    List<SessionChair> getAllSessionChairs() throws RemoteException;
 
-    List<SessionChair> getAllSessionChairs();
+    List<Paper> getPapersToBeReviewed(User user, ReviewStatus reviewStatus) throws RemoteException;
 
-    List<Paper> getPapersToBeReviewed(User user, ReviewStatus reviewStatus);
+    User login(User user, IClientController client) throws RemoteException;
 
-    User login(User user, IClientController client) throws Exception;
-
-    void logout(String username) throws Exception;
+    void logout(String username) throws RemoteException;
 
     void addUser(User user) throws Exception;
 
@@ -33,34 +35,39 @@ public interface IServerController {
 
     void updatePaper(Paper newPaper) throws Exception;
 
-    List<Conference> getAllConferences();
+    List<Conference> getAllConferences() throws RemoteException;
 
-    List<Paper> getAllPapers();
+    List<Paper> getAllPapers() throws RemoteException;
 
-    User getUserById(int userId);
+    User getUserById(int userId) throws RemoteException;
 
-    Edition getEditionById(int editionId);
-    Paper getPaperById(int paperId);
-    List<Paper> getPapersFromAuthor(User author);
+    Edition getEditionById(int editionId) throws RemoteException;
+
+    Paper getPaperById(int paperId) throws RemoteException;
+
+    List<Paper> getPapersFromAuthor(User author) throws RemoteException;
+
     void addConference(Conference conference) throws Exception;
 
     void addEdition(Edition edition) throws Exception;
-    List<Review> getReviewByReviewerAndStatus(User user,ReviewStatus status);
 
-    List<Review> getReviewsByReviewer(User user);
+    List<Review> getReviewByReviewerAndStatus(User user, ReviewStatus status) throws RemoteException;
 
-    Conference getConferenceById(int userId);
-    List<Edition> getEditionAfterDate(Date date);
-    List<Paper> getPapersReviewer(User user);
+    List<Review> getReviewsByReviewer(User user) throws RemoteException;
+
+    Conference getConferenceById(int userId) throws RemoteException;
+
+    List<Edition> getEditionAfterDate(Date date) throws RemoteException;
+
+    List<Paper> getPapersReviewer(User user) throws RemoteException;
 
     void updateReview(Review review) throws Exception;
 
-    Review getReviewByReviewerAndPaper(User user, Paper paper);
+    Review getReviewByReviewerAndPaper(User user, Paper paper) throws RemoteException;
 
-    List<Paper> getPapersNotReviewed(User user);
+    List<Paper> getPapersNotReviewed(User user) throws RemoteException;
 
-    void deleteReview(Review review);
+    void deleteReview(Review review) throws RemoteException;
 
     void addRegistration(Registration registration) throws Exception;
-    
 }

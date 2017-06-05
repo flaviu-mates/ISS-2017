@@ -13,7 +13,7 @@ public class ReviewService extends AbstractService<Integer, Review> {
     private ReviewRepository repository;
     private IValidator<Review> validator;
 
-    public ReviewService(ReviewRepository repository, IValidator<Review> validator) {
+    public ReviewService(IValidator<Review> validator, ReviewRepository repository) {
         super(validator);
         this.validator = validator;
         this.repository = repository;

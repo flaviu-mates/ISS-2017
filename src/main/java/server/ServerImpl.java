@@ -5,6 +5,7 @@ import common.IServerController;
 import domain.*;
 import server.service.*;
 
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -66,17 +67,17 @@ public class ServerImpl implements IServerController {
         return reviewService.getPaperToBeReviewed(user, reviewStatus);
     }
 
-    public User login(User user, IClientController client) throws Exception {
+    public User login(User user, IClientController client) throws RemoteException {
         User existsUser = userService.findUser(user);
 
         //invalid user
         if (existsUser == null) {
-            throw new Exception("Invalid username/password");
+            throw new RemoteException("Invalid username/password");
         }
 
         //already logged in
         if (clientsMap.get(user.getUsername()) != null) {
-            throw new Exception("User is already logged in");
+            throw new RemoteException("User is already logged in");
         }
 
         //we save the user in loggedClients HashMap
@@ -85,7 +86,7 @@ public class ServerImpl implements IServerController {
     }
 
     @Override
-    public void logout(String username) throws Exception {
+    public void logout(String username) throws RemoteException {
         clientsMap.remove(username);
     }
 
@@ -116,7 +117,7 @@ public class ServerImpl implements IServerController {
     }
 
     @Override
-    public void updatePaper(Paper newPaper) throws Exception {
+    public void updatePaper(Paper newPaper) throws RemoteException {
         paperService.update(newPaper.getId(), newPaper);
     }
 

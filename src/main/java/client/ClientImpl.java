@@ -24,20 +24,20 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
     }
 
 
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers() throws RemoteException {
         return server.getAllUser();
     }
 
-    public User getUserById(int userId) {
+    public User getUserById(int userId) throws RemoteException {
         return server.getUserById(userId);
     }
 
-    public Conference getConferenceById(int userId) {
+    public Conference getConferenceById(int userId) throws RemoteException {
         return server.getConferenceById(userId);
     }
 
 
-    public Edition getEditionById(int editionId) {
+    public Edition getEditionById(int editionId) throws RemoteException {
         return server.getEditionById(editionId);
     }
 
@@ -51,20 +51,20 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
     }
 
 
-    public List<Conference> getAllConferences() {
+    public List<Conference> getAllConferences() throws RemoteException {
         return server.getAllConferences();
     }
 
-    public List<Edition> getAllEdition() {
+    public List<Edition> getAllEdition() throws RemoteException {
         return server.getAllEditions();
     }
 
 
-    public List<Paper> getAllPapers() {
+    public List<Paper> getAllPapers() throws RemoteException {
         return server.getAllPapers();
     }
 
-    public List<Paper> getPapersFromAuthor(User author) {
+    public List<Paper> getPapersFromAuthor(User author) throws RemoteException {
         return server.getPapersFromAuthor(author);
     }
 
@@ -72,7 +72,7 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.updateUser(newUser);
     }
 
-    public List<Edition> getEditionAfterDate(Date date) {
+    public List<Edition> getEditionAfterDate(Date date) throws RemoteException {
         return server.getEditionAfterDate(date);
     }
 
@@ -89,7 +89,7 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         }
     }
 
-    public List<Review> getReviewByReviewerAndStatus(User user, ReviewStatus status) {
+    public List<Review> getReviewByReviewerAndStatus(User user, ReviewStatus status) throws RemoteException {
         return server.getReviewByReviewerAndStatus(user, status);
     }
 
@@ -97,11 +97,11 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addConference(new Conference(conferenceName));
     }
 
-    public List<Paper> getPapersToBeReviewed(User user, ReviewStatus status) {
+    public List<Paper> getPapersToBeReviewed(User user, ReviewStatus status) throws RemoteException {
         return server.getPapersToBeReviewed(user, status);
     }
 
-    public List<Paper> getPapersNotReviewed(User user) {
+    public List<Paper> getPapersNotReviewed(User user) throws RemoteException {
         return server.getPapersNotReviewed(user);
     }
 
@@ -123,7 +123,7 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addEdition(edition);
     }
 
-    public List<Review> getAllReviews() {
+    public List<Review> getAllReviews() throws RemoteException {
         return server.getAllReviews();
     }
 
@@ -139,11 +139,11 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
 
     }
 
-    public void deleteReview(Review r) {
+    public void deleteReview(Review r) throws RemoteException {
         server.deleteReview(r);
     }
 
-    public Review getReviewByReviewerAndPaper(User u, Paper p) {
+    public Review getReviewByReviewerAndPaper(User u, Paper p) throws RemoteException {
         return server.getReviewByReviewerAndPaper(u, p);
     }
 
@@ -163,7 +163,7 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
     }
 
 
-    public synchronized List<SessionChair> getAllSessionChairs() {
+    public synchronized List<SessionChair> getAllSessionChairs() throws RemoteException {
         return server.getAllSessionChairs();
     }
 

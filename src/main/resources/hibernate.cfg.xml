@@ -8,7 +8,7 @@
         <property name="format_sql">true</property>
         <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
-        <property name="connection.url">jdbc:sqlite:C:\Users\NegrutiA\IdeaProjects\ISS-2017-master\database.db</property>
+        <property name="connection.url">jdbc:sqlite:C:\Users\Andrei Bodea\IdeaProjects\management\database.db</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
 

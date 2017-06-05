@@ -7,7 +7,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\NegrutiA\IdeaProjects\ISS-2017-master\database.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Andrei Bodea\IdeaProjects\management\database.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
