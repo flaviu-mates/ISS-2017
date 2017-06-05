@@ -20,6 +20,10 @@ import java.util.stream.Collectors;
 public class PaperRepository implements IRepository<Integer, Paper> {
     private JdbcUtils dbutils;
 
+    public PaperRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         Connection con=dbutils.getConnection();
@@ -84,11 +88,11 @@ public class PaperRepository implements IRepository<Integer, Paper> {
                     String title = result.getString("title");
                     String topic = result.getString("topic");
 
-                    SessionRepository sr = new SessionRepository();
+                    SessionRepository sr = new SessionRepository(dbutils);
                     Session session  = new Session();
                     session = sr.findOne(result.getInt("session_id"));
 
-                    UserRepository ur = new UserRepository();
+                    UserRepository ur = new UserRepository(dbutils);
                     User user = new User();
                     user = ur.findOne(result.getInt("user_id"));
 
@@ -114,11 +118,11 @@ public class PaperRepository implements IRepository<Integer, Paper> {
                     String title = result.getString("title");
                     String topic = result.getString("topic");
 
-                    SessionRepository sr = new SessionRepository();
+                    SessionRepository sr = new SessionRepository(dbutils);
                     Session session  = new Session();
                     session = sr.findOne(result.getInt("session_id"));
 
-                    UserRepository ur = new UserRepository();
+                    UserRepository ur = new UserRepository(dbutils);
                     User user = new User();
                     user = ur.findOne(result.getInt("user_id"));
 

@@ -8,6 +8,10 @@ import java.util.List;
 public class SessionChairRepository implements IRepository<Integer, SessionChair> {
     private JdbcUtils dbutils;
 
+    public SessionChairRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         return 0;

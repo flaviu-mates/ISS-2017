@@ -8,6 +8,10 @@ import java.util.List;
 public class RegistrationRepository implements IRepository<Integer, Registration> {
     private JdbcUtils dbutils;
 
+    public RegistrationRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         return 0;

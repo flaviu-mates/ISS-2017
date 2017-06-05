@@ -17,6 +17,10 @@ import java.util.List;
 public class UserRepository implements IRepository<Integer, User> {
     private JdbcUtils dbutils;
 
+    public UserRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         Connection con=dbutils.getConnection();

@@ -15,6 +15,9 @@ import java.util.List;
 public class SessionRepository implements IRepository<Integer, Session> {
     private JdbcUtils dbutils;
 
+    public SessionRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
 
     @Override
     public int size() {
@@ -85,7 +88,7 @@ public class SessionRepository implements IRepository<Integer, Session> {
                     java.util.Date date= result.getDate("date");
                     String location = result.getString("location");
                     int edition_id = result.getInt("edition_id");
-                    EditionRepository r = new EditionRepository();
+                    EditionRepository r = new EditionRepository(dbutils);
                     Edition e = r.findOne(edition_id);
 
                     Session s = new Session(id, date, location, e);
@@ -109,7 +112,7 @@ public class SessionRepository implements IRepository<Integer, Session> {
                     java.util.Date date= result.getDate("date");
                     String location = result.getString("location");
                     int edition_id = result.getInt("edition_id");
-                    EditionRepository r = new EditionRepository();
+                    EditionRepository r = new EditionRepository(dbutils);
                     Edition e = r.findOne(edition_id);
 
 

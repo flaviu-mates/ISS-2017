@@ -17,6 +17,10 @@ import java.util.stream.Collectors;
 public class ReviewRepository implements IRepository<Integer, Review> {
     private JdbcUtils dbutils;
 
+    public ReviewRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         Connection con=dbutils.getConnection();
@@ -75,10 +79,10 @@ public class ReviewRepository implements IRepository<Integer, Review> {
                 if (result.next()) {
                     String comment = result.getString("comment");
                     int reviewStatus_index = result.getInt("reviewStatus");
-                    UserRepository userRepository = new UserRepository();
+                    UserRepository userRepository = new UserRepository(dbutils);
                     User user = userRepository.findOne(result.getInt("user_id"));
 
-                    PaperRepository paperRepository = new PaperRepository();
+                    PaperRepository paperRepository = new PaperRepository(dbutils);
                     Paper paper= paperRepository.findOne(result.getInt("paper_id"));
 
 
@@ -102,10 +106,10 @@ public class ReviewRepository implements IRepository<Integer, Review> {
 
                     String comment = result.getString("comment");
                     int reviewStatus_index = result.getInt("reviewStatus");
-                    UserRepository userRepository = new UserRepository();
+                    UserRepository userRepository = new UserRepository(dbutils);
                     User user = userRepository.findOne(result.getInt("user_id"));
 
-                    PaperRepository paperRepository = new PaperRepository();
+                    PaperRepository paperRepository = new PaperRepository(dbutils);
                     Paper paper= paperRepository.findOne(result.getInt("paper_id"));
 
 

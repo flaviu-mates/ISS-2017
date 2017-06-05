@@ -15,6 +15,10 @@ import java.util.stream.Collectors;
 public class EditionRepository implements IRepository<Integer, Edition> {
     private JdbcUtils dbutils;
 
+    public EditionRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         Connection con=dbutils.getConnection();
@@ -96,7 +100,7 @@ public class EditionRepository implements IRepository<Integer, Edition> {
                     java.util.Date end= result.getDate("end");
                     java.util.Date paperdeadline= result.getDate("paperDeadline");
                     String name = result.getString("name");
-                    ConferenceRepository r = new ConferenceRepository();
+                    ConferenceRepository r = new ConferenceRepository(dbutils);
                     Conference c = (r.findOne(result.getInt("conference_id")));
                     Edition m = new Edition(id, name, begin, end, c, deadline, paperdeadline);
                     return m;
@@ -121,7 +125,7 @@ public class EditionRepository implements IRepository<Integer, Edition> {
                     java.util.Date end= result.getDate("end");
                     java.util.Date paperdeadline= result.getDate("paperDeadline");
                     String name = result.getString("name");
-                    ConferenceRepository r = new ConferenceRepository();
+                    ConferenceRepository r = new ConferenceRepository(dbutils);
                     Conference c = (r.findOne(result.getInt("conference_id")));
                     Edition m = new Edition(id, name, begin, end, c, deadline, paperdeadline);
                     editions.add(m);
