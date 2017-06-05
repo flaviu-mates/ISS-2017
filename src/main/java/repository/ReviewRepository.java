@@ -14,12 +14,13 @@ import java.util.stream.Collectors;
 /**
  * Created by Andrei on 5/31/2017.
  */
-public class ReviewRepository implements IRepository<Integer, Review> {
+public class ReviewRepository  implements IRepository<Integer, Review>{
     private JdbcUtils dbutils;
 
     public ReviewRepository(JdbcUtils dbutils) {
         this.dbutils = dbutils;
     }
+
 
     @Override
     public int size() {
@@ -35,7 +36,6 @@ public class ReviewRepository implements IRepository<Integer, Review> {
         }
         return 0;
     }
-
     @Override
     public void save(Review entity) {
         Connection con=dbutils.getConnection();
@@ -55,9 +55,14 @@ public class ReviewRepository implements IRepository<Integer, Review> {
 
     @Override
     public void delete(Integer integer) {
+
+    }
+
+    public void delete(Integer user_id, Integer paper_id) {
         Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("delete from reviews where id=?")){
-            preStmt.setInt(1,integer);
+        try(PreparedStatement preStmt=con.prepareStatement("delete from reviews where user_id=? and paper_id = ?")){
+            preStmt.setInt(1,user_id);
+            preStmt.setInt(2,paper_id);
             int result=preStmt.executeUpdate();
         }catch (SQLException ex){
             System.out.println("Error DB "+ex);
@@ -71,10 +76,15 @@ public class ReviewRepository implements IRepository<Integer, Review> {
 
     @Override
     public Review findOne(Integer integer) {
+        return null;
+    }
+
+    public Review findOne(Integer user_id, Integer paper_id) {
         Connection con=dbutils.getConnection();
 
-        try(PreparedStatement preStmt=con.prepareStatement("select * from reviews where id=?")){
-            preStmt.setInt(1,integer);
+        try(PreparedStatement preStmt=con.prepareStatement("select * from reviews where user_id=? and paper_id = ?")){
+            preStmt.setInt(1,user_id);
+            preStmt.setInt(2,paper_id);
             try(ResultSet result=preStmt.executeQuery()) {
                 if (result.next()) {
                     String comment = result.getString("comment");
@@ -85,8 +95,9 @@ public class ReviewRepository implements IRepository<Integer, Review> {
                     PaperRepository paperRepository = new PaperRepository(dbutils);
                     Paper paper= paperRepository.findOne(result.getInt("paper_id"));
 
+                    UserPaper userPaper = new UserPaper(user, paper);
 
-                    Review r = new Review(comment, ReviewStatus.values()[reviewStatus_index], user, paper);
+                    Review r = new Review(userPaper, ReviewStatus.values()[reviewStatus_index], comment);
                     return r;
                 }
             }
@@ -112,8 +123,9 @@ public class ReviewRepository implements IRepository<Integer, Review> {
                     PaperRepository paperRepository = new PaperRepository(dbutils);
                     Paper paper= paperRepository.findOne(result.getInt("paper_id"));
 
+                    UserPaper userPaper = new UserPaper(user, paper);
 
-                    Review r = new Review(comment, ReviewStatus.values()[reviewStatus_index], user, paper);
+                    Review r = new Review(userPaper, ReviewStatus.values()[reviewStatus_index], comment);
                     reviews.add(r);
                 }
             }
