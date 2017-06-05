@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c740eb51-9505-437b-94e0-c25b650f4bbc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/ConferenceRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/EditionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/EditionRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/RegistrationRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/RegistrationRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/ReviewRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/ReviewRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/SessionChairRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/SessionChairRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/MainServer.java" afterPath="$PROJECT_DIR$/src/main/java/server/MainServer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -83,14 +71,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainServer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainServer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/MainServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
+            <state relative-caret-position="-241">
               <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GUI/RegisterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -517,8 +515,8 @@
         <option value="$PROJECT_DIR$/src/main/java/repository/SessionRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/PaperRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/ReviewRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/MainServer.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/server/MainServer.java" />
       </list>
     </option>
   </component>
@@ -653,6 +651,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="management" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ISS-2017" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -706,21 +730,15 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/dataSources/389a0422-e69a-4c4d-b4f9-d742970bc3a4.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/client/ClientImpl.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/common/IServerController.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/MainServer.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/ServerImpl.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/service/ReviewService.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/hibernate.cfg.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/client/ClientImpl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/common/IServerController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/MainServer.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/ServerImpl.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/service/ReviewService.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/client/MainClient.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/login.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/register.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/database.db</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/client/MainClient.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/login.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/register.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -728,35 +746,25 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/AuthorView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/CreateConferenceView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/CreateEditionView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/CreateView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/MyPaperView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ParticipantView.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/client/MainClient.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/ConferenceValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/EditionValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/PaperValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/RegistrationValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/ReviewValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/SessionChairValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/server/validator/UserValidator.class</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/author.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/createConf.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/createEdition.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/createView.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/myPaper.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/participant.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/client/MainClient.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/ConferenceValidator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/EditionValidator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/PaperValidator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/RegistrationValidator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/ReviewValidator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/SessionChairValidator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/server/validator/UserValidator.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/LoginController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/RegisterController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerAssignmentController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerReviewsController$1.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerReviewsController$2.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/ReviewerReviewsController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/SessionAssignController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/SessionRequestController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/GUI/UserController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/ReviewerAssignmentView.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/ReviewerReviewsView.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/ReviewerView.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/SessionAssignView.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/SessionRequestView.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/UserView.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/resources/main/exemple2.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/GUI/LoginController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/GUI/RegisterController.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -764,6 +772,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/LoginController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/Main.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/build/classes/main/RegisterController.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/LoginController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/Main.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/RegisterController.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1236,7 +1250,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1246,7 +1260,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41220558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="0" width="1908" height="1028" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936978" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21081081" sideWeight="0.49019608" order="6" side_tool="false" content_ui="combo" />
@@ -1340,15 +1354,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.xerial/sqlite-jdbc/3.16.1/bcbe7829a27650ef6eb8e03d2032da224f114095/sqlite-jdbc-3.16.1-sources.jar!/org/sqlite/jdbc3/JDBC3Statement.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/389a0422-e69a-4c4d-b4f9-d742970bc3a4/console.sql" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1691,9 +1702,9 @@
         <state relative-caret-position="286">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#266#267#0" expanded="false" />
+            <element signature="e#304#305#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1713,7 +1724,7 @@
         <state relative-caret-position="161">
           <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
           <folding>
-            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1733,8 +1744,8 @@
         <state relative-caret-position="299">
           <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#486#487#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1768,11 +1779,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/MainServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
+        <state relative-caret-position="-241">
           <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GUI/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

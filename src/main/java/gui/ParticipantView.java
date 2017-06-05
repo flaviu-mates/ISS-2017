@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import domain.Edition;
 import javafx.collections.FXCollections;
