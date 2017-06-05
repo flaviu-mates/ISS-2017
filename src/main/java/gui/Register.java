@@ -5,15 +5,17 @@ import domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Register
 {
+    @FXML
+    private AnchorPane root;
+
     @FXML
     TextField textBoxUsername;
     @FXML
@@ -32,9 +34,11 @@ public class Register
 
     private ClientImpl clientCtrl;
 
-    public void Register(ClientImpl clientCtrl) {}
+    public Register() {}
 
-    public void setCtrl(ClientImpl clientCtrl) {
+    public Register(ClientImpl clientCtrl) {}
+
+    public void setClientCtrl(ClientImpl clientCtrl) {
         this.clientCtrl = clientCtrl;
     }
 
@@ -57,7 +61,7 @@ public class Register
     }
 
     @FXML
-    public void doRegisterAndRedirect(ActionEvent event) throws Exception {
+    public void registerUser(ActionEvent event) throws Exception {
         String username = this.textBoxUsername.getText();
         String password = this.textBoxPassword.getText();
         String email = this.textBoxEmail.getText();
@@ -65,22 +69,39 @@ public class Register
         String lastname = this.textBoxLastName.getText();
         String userType = this.comboBoxUserTypes.getSelectionModel().getSelectedItem().toString();
 
-        User user = new User(username, password, email, firstname, lastname, userType);
         try {
+            User user = new User(username, password, email, firstname, lastname, userType);
             this.clientCtrl.addUser(user);
+            this.redirectToLogin();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Registration successful", ButtonType.OK);
+            alert.setTitle("Success");
+            alert.setHeaderText("You can now login!");
+            alert.showAndWait();
         } catch (Exception e) {
             this.warning("Invalid user information");
-            return;
         }
+    }
 
-        Parent window3 = (GridPane) FXMLLoader.load(getClass().getResource("../login.fxml"));
-        Scene newScene = new Scene(window3);
-        Stage mainWindow = (Stage)  ((Node)event.getSource()).getScene().getWindow();
-        mainWindow.setScene(newScene);
+    public void redirectToLogin() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Login.class.getResource("../login.fxml"));
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Registration successful", ButtonType.OK);
-        alert.setTitle("You can now login!");
-        alert.setHeaderText("Success");
-        alert.showAndWait();
+            Pane pane = loader.load();
+            Scene scene = new Scene(pane);
+
+            Stage stage = (Stage) this.root.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setScene(scene);
+
+            // inject client controller
+            Login login = loader.getController();
+            login.setClientCtrl(this.clientCtrl);
+
+            stage.show();
+        } catch (Exception e) {
+            this.warning("Cannot redirect!");
+        }
     }
 }
