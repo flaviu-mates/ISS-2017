@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -32,12 +33,24 @@ public class Login
         this.clientCtrl = clientCtrl;
     }
 
+    protected void warning(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+
     public void doLogin() {
         String username = this.textBoxUsername.getText();
         String password = this.textBoxPassword.getText();
 
-        User user = new User(username, password);
-        // TODO validate user
+        try {
+            this.clientCtrl.login(username, password);
+        } catch (Exception e) {
+            // TODO be more specific
+            this.warning("Invalid user information");
+        }
     }
 
     public void openRegister(ActionEvent event) throws Exception {
@@ -55,6 +68,7 @@ public class Login
         register.setCtrl(this.clientCtrl);
 
         Scene scene = new Scene(pane);
+        // TODO logout
 //        stage.setOnCloseRequest(event2 -> Platform.runLater(() -> this.clientCtrl.logout(""/* TODO give username */)));
         stage.setScene(scene);
         stage.show();

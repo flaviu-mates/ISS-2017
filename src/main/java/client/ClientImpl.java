@@ -35,7 +35,6 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         return server.getConferenceById(userId);
     }
 
-
     public Edition getEditionById(int editionId) throws RemoteException {
         return server.getEditionById(editionId);
     }
@@ -44,11 +43,9 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addPaper(paper);
     }
 
-
     public void addRegistration(Registration registration) throws Exception {
         server.addRegistration(registration);
     }
-
 
     public List<Conference> getAllConferences() throws RemoteException {
         return server.getAllConferences();
@@ -57,7 +54,6 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
     public List<Edition> getAllEdition() throws RemoteException {
         return server.getAllEditions();
     }
-
 
     public List<Paper> getAllPapers() throws RemoteException {
         return server.getAllPapers();

@@ -47,19 +47,32 @@ public class Register
         this.comboBoxUserTypes.getItems().add(2, "Listener");
     }
 
-    public void doRegister() {
+    protected void warning(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+
+    @FXML
+    public void doRegisterAndRedirect(ActionEvent event) throws Exception {
         String username = this.textBoxUsername.getText();
         String password = this.textBoxPassword.getText();
         String email = this.textBoxEmail.getText();
         String firstname = this.textBoxFirstName.getText();
         String lastname = this.textBoxLastName.getText();
-        String userType = this.comboBoxUserTypes.getSelectionModel().selectedItemProperty().toString();
+        String userType = this.comboBoxUserTypes.getSelectionModel().getSelectedItem().toString();
 
         User user = new User(username, password, email, firstname, lastname, userType);
-        // TODO insert new username
-    }
+        try {
+            this.clientCtrl.addUser(user);
+        } catch (Exception e) {
+            // TODO be more specific
+            this.warning("Invalid user information");
+            return;
+        }
 
-    private void openLogin(ActionEvent event) throws Exception {
         Parent window3 = (GridPane) FXMLLoader.load(getClass().getResource("../login.fxml"));
         Scene newScene = new Scene(window3);
         Stage mainWindow = (Stage)  ((Node)event.getSource()).getScene().getWindow();
