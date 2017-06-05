@@ -17,6 +17,10 @@ import java.util.List;
 public class ConferenceRepository implements IRepository<Integer, Conference> {
     private JdbcUtils dbutils;
 
+    public ConferenceRepository(JdbcUtils dbutils) {
+        this.dbutils = dbutils;
+    }
+
     @Override
     public int size() {
         Connection con=dbutils.getConnection();
