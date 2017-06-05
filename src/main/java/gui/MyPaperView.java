@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import domain.*;
 import javafx.collections.FXCollections;

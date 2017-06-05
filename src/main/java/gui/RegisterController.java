@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import domain.User;
 import javafx.event.ActionEvent;

@@ -39,11 +39,10 @@ public class ConferenceRepository implements IRepository<Integer, Conference> {
     @Override
     public void save(Conference entity) {
         Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("insert into conferences(id,name)" +
-                " values (?,?)")){
+        try(PreparedStatement preStmt=con.prepareStatement("insert into conferences(name)" +
+                " values (?)")){
 
-            preStmt.setInt(1,entity.getId());
-            preStmt.setString(2,entity.getName());
+            preStmt.setString(1,entity.getName());
 
             int result=preStmt.executeUpdate();
         }catch (SQLException ex){

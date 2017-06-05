@@ -39,16 +39,15 @@ public class UserRepository implements IRepository<Integer, User> {
     @Override
     public void save(User entity) {
         Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("insert into users(id,email, firstname, lastname, password, tag, username)" +
-                " values (?,?,?, ?, ?, ?, ?)")){
+        try(PreparedStatement preStmt=con.prepareStatement("insert into users(email, firstname, lastname, password, tag, username)" +
+                " values (?,?, ?, ?, ?, ?)")){
 
-            preStmt.setInt(1,entity.getId());
-            preStmt.setString(2,entity.getEmail());
-            preStmt.setString(3,entity.getFirstname());
-            preStmt.setString(4,entity.getLastname());
-            preStmt.setString(5,entity.getPassword());
-            preStmt.setString(6,entity.getTag());
-            preStmt.setString(7,entity.getUsername());
+            preStmt.setString(1,entity.getEmail());
+            preStmt.setString(2,entity.getFirstname());
+            preStmt.setString(3,entity.getLastname());
+            preStmt.setString(4,entity.getPassword());
+            preStmt.setString(5,entity.getTag());
+            preStmt.setString(6,entity.getUsername());
 
             int result=preStmt.executeUpdate();
         }catch (SQLException ex){
