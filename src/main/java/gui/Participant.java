@@ -121,6 +121,8 @@ public class Participant implements IGui
             if (this.clientCtrl.addRegistration(registration)) {
                 this.success("Registration for user: " + this.clientCtrl.getLoggedUser().getUsername() +
                              "to edition: " + edition.getName() +  " added.");
+            } else {
+                this.warning("Already registered.");
             }
         } catch (Exception e) {
             this.warning(e.getMessage());

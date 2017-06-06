@@ -2,6 +2,7 @@ package repository;
 
 import domain.Conference;
 import domain.Registration;
+import domain.UserEdition;
 import jdbc.JdbcUtils;
 
 import java.sql.Connection;
@@ -68,23 +69,34 @@ public class RegistrationRepository implements IRepository<Integer, Registration
 
     @Override
     public List<Registration> findAll() {
-//        Connection con = dbutils.getConnection();
-//        List<Registration> registrations = new ArrayList<>();
-//        try(PreparedStatement preStmt=con.prepareStatement("select * from registration")) {
-//            try(ResultSet result = preStmt.executeQuery()) {
-//                List<Registration> list = new ArrayList<>();
-//                while (result.next()) {
-//                    int uId = result.getInt("user_id");
-//                    int eId = result.getInt("edition_id");
-//
-////                    Registration m = new Registration(0, uId, eId);
-//                    registrations.add(m);
-//                }
-//
-//                return list;
-//            }
-//        }catch(SQLException ex){
-//            System.out.println("Error DB "+ex);
-//        }
-        return null;}
+        Connection con = dbutils.getConnection();
+        List<Registration> registrations = new ArrayList<>();
+        try(PreparedStatement preStmt=con.prepareStatement("select * from registration")) {
+            try(ResultSet result = preStmt.executeQuery()) {
+                UserRepository userRepository = new UserRepository(dbutils);
+                EditionRepository editionRepository = new EditionRepository(dbutils);
+
+                while (result.next()) {
+                    int userId = result.getInt("user_id");
+                    int editionId = result.getInt("edition_id");
+                    boolean acquitted = result.getBoolean("acquitted");
+
+                    Registration registration = new Registration();
+                    UserEdition userEdition = new UserEdition();
+                    userEdition.setUser(userRepository.findOne(userId));
+                    userEdition.setEdition(editionRepository.findOne(editionId));
+
+                    registration.setUserEdition(userEdition);
+                    registration.setAcquitted(acquitted);
+                    registrations.add(registration);
+                }
+
+                return registrations;
+            }
+        }catch(SQLException ex){
+            System.out.println("Error DB "+ex);
+        }
+
+        return null;
+    }
 }
