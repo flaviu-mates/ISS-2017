@@ -16,7 +16,6 @@ import java.util.Properties;
 
 public class MainServer {
     public static void main(String[] args) throws Exception{
-        // TODO Repositories param -> connection
         Properties prop = new Properties();
 
         try {

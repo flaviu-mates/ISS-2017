@@ -7,14 +7,36 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.omg.CORBA.INITIALIZE;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class MainClient extends Application  {
+    static SessionFactory sessionFactory;
+
+    static void initialize()
+    {
+        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+                .configure()
+                .build();
+
+        try {
+            sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        } catch (Exception e) {
+            StandardServiceRegistryBuilder.destroy(registry);
+        }
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         try {
+            initialize();
+
             String name = "CMS";
             Registry registry = LocateRegistry.getRegistry("localhost");
             IServerController server = (IServerController) registry.lookup(name);
