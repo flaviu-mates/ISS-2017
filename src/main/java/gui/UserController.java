@@ -37,6 +37,17 @@ public class UserController implements Initializable
     public void setCtrl(ClientImpl clientCtrl)
     {
         this.clientCtrl = clientCtrl;
+        initializeUserTable();
+    }
+
+    private void initializeUserTable() {
+        try {
+            model = FXCollections.observableArrayList(clientCtrl.getAllUsers());
+            table.setItems(model);
+        } catch (RemoteException exc) {
+            exc.printStackTrace();
+        }
+
     }
 
     @Override
