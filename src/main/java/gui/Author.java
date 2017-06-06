@@ -58,10 +58,10 @@ public class Author implements Initializable, IGui {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        locationColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        editionColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        editionColumn.setCellValueFactory(new PropertyValueFactory<>("edition"));
         model = FXCollections.observableArrayList();
         table.setItems(model);
 

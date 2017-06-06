@@ -30,10 +30,10 @@
                 </Label>
                 <TableView fx:id="table" maxWidth="453.0" prefHeight="354.0" prefWidth="441.0">
                     <columns>
-                        <TableColumn fx:id="nameColumn" prefWidth="86.0" text="Name" />
-                        <TableColumn fx:id="submissionDeadlineColumn" prefWidth="141.0" text="SubmissionDeadline" />
-                        <TableColumn fx:id="beginingDateColumn" prefWidth="119.0" text="BegginingDate" />
-                        <TableColumn fx:id="endingDateColumn" prefWidth="105.0" text="EndingDate" />
+                        <TableColumn fx:id="idColumn" prefWidth="86.0" text="Name" />
+                        <TableColumn fx:id="dateColumn" prefWidth="141.0" text="SubmissionDeadline" />
+                        <TableColumn fx:id="locationColumn" prefWidth="119.0" text="BegginingDate" />
+                        <TableColumn fx:id="editionColumn" prefWidth="105.0" text="EndingDate" />
                     </columns>
                     <VBox.margin>
                         <Insets left="30.0" right="50.0" top="10.0" />

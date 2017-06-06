@@ -43,14 +43,6 @@ public class Create implements Initializable, IGui
 
     }
 
-    public void onCreateConf_clicked(ActionEvent actionEvent) {
-        switchToViewConf("createConf.fxml", "Create conference");
-    }
-
-    public void onCreateEdition_clicked(ActionEvent actionEvent) {
-        switchToViewEdit("createEdition.fxml", "Create edition");
-    }
-
     private void warning(String message){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -59,9 +51,10 @@ public class Create implements Initializable, IGui
         alert.showAndWait();
     }
 
-    void switchToViewConf(String fxmlPath, String title) {
+    @FXML
+    void switchToViewConf(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
+        loader.setLocation(getClass().getClassLoader().getResource("../createConf.fxml"));
         try {
             Pane pane = loader.load();
             Scene scene = new Scene(pane);
@@ -71,8 +64,8 @@ public class Create implements Initializable, IGui
             stage.setScene(scene);
 
             // inject client controller
-            CreateConference createConference = loader.getController();
-            createConference.setCtrl(this.clientCtrl);
+            IGui object = loader.getController();
+            object.setCtrl(clientCtrl);
 
             stage.show();
         } catch (Exception e) {
@@ -80,9 +73,10 @@ public class Create implements Initializable, IGui
         }
     }
 
-    void switchToViewEdit(String fxmlPath, String title) {
+    @FXML
+    void switchToViewEdit(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
+        loader.setLocation(getClass().getClassLoader().getResource("../createEdition.fxml"));
         try {
             Pane pane = loader.load();
             Scene scene = new Scene(pane);
@@ -92,8 +86,8 @@ public class Create implements Initializable, IGui
             stage.setScene(scene);
 
             // inject client controller
-            CreateEdition createEdition = loader.getController();
-            createEdition.setCtrl(this.clientCtrl);
+            IGui object = loader.getController();
+            object.setCtrl(clientCtrl);
 
             stage.show();
         } catch (Exception e) {
