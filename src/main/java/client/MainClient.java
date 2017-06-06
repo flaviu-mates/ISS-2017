@@ -11,12 +11,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.omg.CORBA.INITIALIZE;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class MainClient extends Application  {
+public class MainClient extends Application
+{
     static SessionFactory sessionFactory;
 
     static void initialize()
@@ -33,7 +33,8 @@ public class MainClient extends Application  {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception
+    {
         try {
             initialize();
 
@@ -60,7 +61,8 @@ public class MainClient extends Application  {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 }

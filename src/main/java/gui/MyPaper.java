@@ -11,9 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by ciprian on 6/3/2017.
- */
 public class MyPaper
 {
     @FXML
@@ -31,7 +28,8 @@ public class MyPaper
     @FXML
     private ObservableList<Paper> model;
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         paperNameColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         topicColumn.setCellValueFactory(new PropertyValueFactory<>("topic"));
         userColumn.setCellValueFactory(new PropertyValueFactory<>("id"));

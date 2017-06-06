@@ -14,10 +14,8 @@ import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
-/**
- * Created by Udisteanu Elisei on 03/06/2017.
- */
-public class UserController implements Initializable {
+public class UserController implements Initializable
+{
     @FXML
     private TableView<User> table;
 
@@ -36,12 +34,14 @@ public class UserController implements Initializable {
 
     private ClientImpl clientCtrl;
 
-    public void setCtrl(ClientImpl clientCtrl) {
+    public void setCtrl(ClientImpl clientCtrl)
+    {
         this.clientCtrl = clientCtrl;
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
         tagColumn.setCellValueFactory(new PropertyValueFactory<>("tag"));
         tagComboBox.getItems().add("Admin");
@@ -53,7 +53,8 @@ public class UserController implements Initializable {
         table.setItems(model);
     }
 
-    private void warning(String message){
+    private void warning(String message)
+    {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setContentText(message);
@@ -61,7 +62,8 @@ public class UserController implements Initializable {
         alert.showAndWait();
     }
 
-    private void update(){
+    private void update()
+    {
         model.clear();
         try {
             model.setAll(clientCtrl.getAllUsers());
@@ -70,18 +72,18 @@ public class UserController implements Initializable {
         }
     }
 
-    public void updateButtonHandler(){
+    public void updateButtonHandler()
+    {
         boolean userSelected = table.getSelectionModel().getSelectedItem() != null;
         boolean tagSelected = tagComboBox.getSelectionModel().getSelectedItem() != null;
-        if(userSelected && tagSelected){
+        if (userSelected && tagSelected) {
             User user = table.getSelectionModel().getSelectedItem();
             try {
 
                 user.setTag(tagComboBox.getSelectionModel().getSelectedItem());
                 clientCtrl.updateUser(user);
                 update();
-            }
-            catch (Exception exception) {
+            } catch (Exception exception) {
                 warning(exception.getMessage());
             }
         } else {
@@ -89,7 +91,8 @@ public class UserController implements Initializable {
         }
     }
 
-    public void logoutButtonHandler(){
+    public void logoutButtonHandler()
+    {
         //
     }
 }

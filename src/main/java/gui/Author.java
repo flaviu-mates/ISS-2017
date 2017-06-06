@@ -23,10 +23,8 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-/**
- * Created by ciprian on 6/3/2017.
- */
-public class Author implements Initializable, IGui {
+public class Author implements Initializable, IGui
+{
     @FXML
     private TextField titleText;
     @FXML
@@ -53,11 +51,13 @@ public class Author implements Initializable, IGui {
     @FXML
     private AnchorPane root;
 
-    public void setCtrl(ClientImpl ctrl) {
+    public void setCtrl(ClientImpl ctrl)
+    {
         this.clientCtrl = ctrl;
     }
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
@@ -73,7 +73,8 @@ public class Author implements Initializable, IGui {
         topicComboBox.getItems().add("HISTORY");
     }
 
-    private void warning(String message){
+    private void warning(String message)
+    {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setContentText(message);
@@ -82,7 +83,8 @@ public class Author implements Initializable, IGui {
     }
 
     @FXML
-    void submitPaper() {
+    void submitPaper()
+    {
         if (table.getSelectionModel().getSelectedItem() == null) {
             warning("There is no selected Edition");
             return;
@@ -103,7 +105,8 @@ public class Author implements Initializable, IGui {
             Session session = table.getSelectionModel().getSelectedItem();
             User author = clientCtrl.getUserById(clientCtrl.getLoggedUser().getId());
             for (Paper p : clientCtrl.getAllPapers()) {
-                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(clientCtrl.getLoggedUser().getUsername())) {
+                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(clientCtrl.getLoggedUser()
+                                                                                           .getUsername())) {
                     //System.out.println("intra la update paper");
                     Paper paper = new Paper(PaperStatus.InReview, title, topic, session, clientCtrl.getLoggedUser());
                     p.setTopic(topic);
@@ -118,8 +121,7 @@ public class Author implements Initializable, IGui {
             warning("Paper Succesfully added");
         } catch (ServiceException exception) {
             warning("Paper could not be added");
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             warning(e.getMessage());
         }
 
@@ -137,11 +139,13 @@ public class Author implements Initializable, IGui {
         }
     }
 
-    void switchToView(String fxmlPath, String title) {
+    void switchToView(String fxmlPath, String title)
+    {
         switchToView(fxmlPath, title, clientCtrl.getLoggedUser());
     }
 
-    void switchToView(String fxmlPath, String title, User currentUser) {
+    void switchToView(String fxmlPath, String title, User currentUser)
+    {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
         try {

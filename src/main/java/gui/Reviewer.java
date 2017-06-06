@@ -12,10 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by Udisteanu Elisei on 03/06/2017.
- */
-public class Reviewer implements Initializable {
+public class Reviewer implements Initializable
+{
     @FXML
     TableView<Paper> availablePapers;
 
@@ -36,7 +34,8 @@ public class Reviewer implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         namePaperColumnAvailable.setCellValueFactory(new PropertyValueFactory<>("title"));
         topicPaperColumnAvailable.setCellValueFactory(new PropertyValueFactory<>("topic"));
         namePaperColumnChosen.setCellValueFactory(new PropertyValueFactory<>("title"));

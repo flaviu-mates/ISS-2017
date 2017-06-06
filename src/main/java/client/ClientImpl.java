@@ -11,77 +11,94 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-public class ClientImpl extends UnicastRemoteObject implements IClientController {
-
+public class ClientImpl extends UnicastRemoteObject implements IClientController
+{
     private IServerController server;
     private User loggedUser;
 
-    public ClientImpl(IServerController server) throws RemoteException {
+    public ClientImpl(IServerController server) throws RemoteException
+    {
         this.server = server;
     }
 
-    public User getLoggedUser() {
+    public User getLoggedUser()
+    {
         return this.loggedUser;
     }
 
-    public void addUser(User user) throws Exception {
+    public void addUser(User user) throws Exception
+    {
         server.addUser(user);
     }
 
-    public List<User> getAllUsers() throws RemoteException {
+    public List<User> getAllUsers() throws RemoteException
+    {
         return server.getAllUser();
     }
 
-    public User getUserById(int userId) throws RemoteException {
+    public User getUserById(int userId) throws RemoteException
+    {
         return server.getUserById(userId);
     }
 
-    public Conference getConferenceById(int userId) throws RemoteException {
+    public Conference getConferenceById(int userId) throws RemoteException
+    {
         return server.getConferenceById(userId);
     }
 
-    public Edition getEditionById(int editionId) throws RemoteException {
+    public Edition getEditionById(int editionId) throws RemoteException
+    {
         return server.getEditionById(editionId);
     }
 
-    public void addPaper(Paper paper) throws Exception {
+    public void addPaper(Paper paper) throws Exception
+    {
         server.addPaper(paper);
     }
 
-    public void addRegistration(Registration registration) throws Exception {
+    public void addRegistration(Registration registration) throws Exception
+    {
         server.addRegistration(registration);
     }
 
-    public List<Conference> getAllConferences() throws RemoteException {
+    public List<Conference> getAllConferences() throws RemoteException
+    {
         return server.getAllConferences();
     }
 
-    public List<Edition> getAllEdition() throws RemoteException {
+    public List<Edition> getAllEdition() throws RemoteException
+    {
         return server.getAllEditions();
     }
 
-    public List<Paper> getAllPapers() throws RemoteException {
+    public List<Paper> getAllPapers() throws RemoteException
+    {
         return server.getAllPapers();
     }
 
-    public List<Paper> getPapersFromAuthor(User author) throws RemoteException {
+    public List<Paper> getPapersFromAuthor(User author) throws RemoteException
+    {
         return server.getPapersFromAuthor(author);
     }
 
-    public void updateUser(User newUser) throws Exception {
+    public void updateUser(User newUser) throws Exception
+    {
         server.updateUser(newUser);
     }
 
-    public List<Edition> getEditionAfterDate(Date date) throws RemoteException {
+    public List<Edition> getEditionAfterDate(Date date) throws RemoteException
+    {
         return server.getEditionAfterDate(date);
     }
 
-    public User login(String username, String password) throws Exception {
+    public User login(String username, String password) throws Exception
+    {
         loggedUser = new User(username, password);
         return server.login(loggedUser, this);
     }
 
-    public void logout(String username) {
+    public void logout(String username)
+    {
         try {
             server.logout(username);
         } catch (Exception ex) {
@@ -89,28 +106,35 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         }
     }
 
-    public List<Review> getReviewByReviewerAndStatus(User user, ReviewStatus status) throws RemoteException {
+    public List<Review> getReviewByReviewerAndStatus(User user, ReviewStatus status) throws RemoteException
+    {
         return server.getReviewByReviewerAndStatus(user, status);
     }
 
-    public void addConference(String conferenceName) throws Exception {
+    public void addConference(String conferenceName) throws Exception
+    {
         server.addConference(new Conference(conferenceName));
     }
 
-    public List<Paper> getPapersToBeReviewed(User user, ReviewStatus status) throws RemoteException {
+    public List<Paper> getPapersToBeReviewed(User user, ReviewStatus status) throws RemoteException
+    {
         return server.getPapersToBeReviewed(user, status);
     }
 
-    public List<Paper> getPapersNotReviewed(User user) throws RemoteException {
+    public List<Paper> getPapersNotReviewed(User user) throws RemoteException
+    {
         return server.getPapersNotReviewed(user);
     }
 
-    public void addEdition(Conference conference,
-                              LocalDate beginningDate,
-                              LocalDate endingDate,
-                              String name,
-                              LocalDate paperSubmissionDeadline,
-                              LocalDate finalDeadline) throws Exception {
+    public void addEdition(
+            Conference conference,
+            LocalDate beginningDate,
+            LocalDate endingDate,
+            String name,
+            LocalDate paperSubmissionDeadline,
+            LocalDate finalDeadline
+                          ) throws Exception
+    {
         Edition edition = new Edition(
                 name,
                 convertToDate(beginningDate),
@@ -123,60 +147,67 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addEdition(edition);
     }
 
-    public List<Review> getAllReviews() throws RemoteException {
+    public List<Review> getAllReviews() throws RemoteException
+    {
         return server.getAllReviews();
     }
 
-
-    public void addReview(User user, Paper paper, ReviewStatus status, String comment) throws Exception {
+    public void addReview(User user, Paper paper, ReviewStatus status, String comment) throws Exception
+    {
         Review review = new Review(new UserPaper(user, paper), status, comment);
         server.addReview(review);
 
     }
 
-    public Paper getPaperById(int id) throws Exception {
+    public Paper getPaperById(int id) throws Exception
+    {
         return server.getPaperById(id);
 
     }
 
-    public void deleteReview(Review r) throws RemoteException {
+    public void deleteReview(Review r) throws RemoteException
+    {
         server.deleteReview(r);
     }
 
-    public Review getReviewByReviewerAndPaper(User u, Paper p) throws RemoteException {
+    public Review getReviewByReviewerAndPaper(User u, Paper p) throws RemoteException
+    {
         return server.getReviewByReviewerAndPaper(u, p);
     }
 
-    public void updateReview(User user, Paper paper, ReviewStatus status, String comment) throws Exception {
+    public void updateReview(User user, Paper paper, ReviewStatus status, String comment) throws Exception
+    {
         Review review = new Review(new UserPaper(user, paper), status, comment);
         server.updateReview(review);
     }
 
-
-    public void updateReview(Review review) throws Exception {
+    public void updateReview(Review review) throws Exception
+    {
         server.updateReview(review);
     }
 
-
-    public void updatePaper(Paper newPaper) throws Exception {
+    public void updatePaper(Paper newPaper) throws Exception
+    {
         server.updatePaper(newPaper);
     }
 
-
-    public synchronized List<SessionChair> getAllSessionChairs() throws RemoteException {
+    public synchronized List<SessionChair> getAllSessionChairs() throws RemoteException
+    {
         return server.getAllSessionChairs();
     }
 
-
-    public void addSessionChair(SessionChair sessionChair) throws Exception {
+    public void addSessionChair(SessionChair sessionChair) throws Exception
+    {
         server.addSessionChair(sessionChair);
     }
 
-    public List<Session> getAllSessions() throws Exception {
+    public List<Session> getAllSessions() throws Exception
+    {
         return server.getAllSessions();
     }
 
-    public static Date convertToDate(LocalDate localDate) {
+    public static Date convertToDate(LocalDate localDate)
+    {
         if (localDate == null) {
             return null;
         }
@@ -185,7 +216,8 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
     }
 
     @Override
-    public void showUpdated() throws RemoteException {
+    public void showUpdated() throws RemoteException
+    {
         //TODO: Observers
     }
 }

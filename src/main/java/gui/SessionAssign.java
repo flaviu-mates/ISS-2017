@@ -13,10 +13,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by Udisteanu Elisei on 03/06/2017.
- */
-public class SessionAssign implements Initializable {
+
+public class SessionAssign implements Initializable
+{
     @FXML
     ComboBox<String> combo;
     @FXML
@@ -32,10 +31,10 @@ public class SessionAssign implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         paperNameColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         paperTopicColumn.setCellValueFactory(new PropertyValueFactory<>("topic"));
-
 
 
         model = FXCollections.observableArrayList();

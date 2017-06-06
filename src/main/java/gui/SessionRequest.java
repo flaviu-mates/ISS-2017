@@ -10,12 +10,8 @@ import javafx.scene.control.TableView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by Udisteanu Elisei on 03/06/2017.
- */
-public class SessionRequest implements Initializable {
-
-
+public class SessionRequest implements Initializable
+{
     @FXML
     private TableView<Review> table;
 
@@ -29,7 +25,7 @@ public class SessionRequest implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void initialize(URL location, ResourceBundle resources)
+    {
     }
 }

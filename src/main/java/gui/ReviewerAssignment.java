@@ -15,10 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by Udisteanu Elisei on 03/06/2017.
- */
-public class ReviewerAssignment implements Initializable{
+public class ReviewerAssignment implements Initializable
+{
     public ObservableList<Paper> model;
     @FXML
     private ComboBox<String> reviewCombo;
@@ -33,9 +31,10 @@ public class ReviewerAssignment implements Initializable{
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         for (ReviewStatus status : ReviewStatus.values()) {
-                reviewCombo.getItems().add(status.toString());
+            reviewCombo.getItems().add(status.toString());
         }
         namePaperColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         topicPaperColumn.setCellValueFactory(new PropertyValueFactory<>("topic"));

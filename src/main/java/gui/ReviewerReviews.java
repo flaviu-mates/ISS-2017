@@ -17,10 +17,8 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by Udisteanu Elisei on 03/06/2017.
- */
-public class ReviewerReviews implements Initializable {
+public class ReviewerReviews implements Initializable
+{
 
     @FXML
     TableView tabel;
@@ -36,21 +34,26 @@ public class ReviewerReviews implements Initializable {
     ObservableList<Paper> model;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        paperName.setCellValueFactory(new PropertyValueFactory<Paper,String>("title"));
-        topic.setCellValueFactory(new PropertyValueFactory<Paper,String>("topic"));
-        author.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Paper, String>, ObservableValue<String>>() {
+    public void initialize(URL location, ResourceBundle resources)
+    {
+        paperName.setCellValueFactory(new PropertyValueFactory<Paper, String>("title"));
+        topic.setCellValueFactory(new PropertyValueFactory<Paper, String>("topic"));
+        author.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Paper, String>, ObservableValue<String>>()
+        {
             @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Paper, String> c) {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Paper, String> c)
+            {
                 return new SimpleStringProperty(c.getValue().getUser().getUsername());
             }
         });
 
         model = FXCollections.observableArrayList();
         tabel.setItems(model);
-        tabel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Paper>() {
+        tabel.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Paper>()
+        {
             @Override
-            public void changed(ObservableValue<? extends Paper> observable, Paper oldValue, Paper newValue) {
+            public void changed(ObservableValue<? extends Paper> observable, Paper oldValue, Paper newValue)
+            {
 
             }
         });

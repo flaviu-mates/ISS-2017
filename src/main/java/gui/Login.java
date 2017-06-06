@@ -1,7 +1,6 @@
 package gui;
 
 import client.ClientImpl;
-import common.IClientController;
 import common.IGui;
 import domain.User;
 import javafx.application.Platform;
