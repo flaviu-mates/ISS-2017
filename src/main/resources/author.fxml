@@ -1,4 +1,4 @@
-<<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -106,7 +106,7 @@
     <top>
         <HBox id="logo" prefHeight="169.0" prefWidth="848.0" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Log Out">
+                <Button mnemonicParsing="false" onAction="#logOutHandler" prefHeight="25.0" prefWidth="69.0" text="Log Out">
                     <HBox.margin>
                         <Insets left="10.0" top="15.0" />
                     </HBox.margin>
@@ -115,4 +115,3 @@
         </HBox>
     </top>
 </BorderPane>
-
