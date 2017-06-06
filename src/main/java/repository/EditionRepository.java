@@ -6,6 +6,8 @@ import jdbc.JdbcUtils;
 
 import java.sql.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -40,24 +42,24 @@ public class EditionRepository implements IRepository<Integer, Edition> {
         try(PreparedStatement preStmt=con.prepareStatement("insert into editions(begin, deadline, end, name, paperDeadline,conference_id)" +
                 " values (?,?,?,?,?,?)")){
 
-            java.util.Date date = entity.getBegin();
-            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+            LocalDate localDate = entity.getBegin().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            java.sql.Date sqlDate = java.sql.Date.valueOf(localDate);
 
             preStmt.setDate(1,sqlDate);
 
-            date = entity.getDeadline();
-            sqlDate = new java.sql.Date(date.getTime());
+            localDate = entity.getDeadline().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            sqlDate = java.sql.Date.valueOf(localDate);
 
             preStmt.setDate(2,sqlDate);
 
-            date = entity.getEnd();
-            sqlDate = new java.sql.Date(date.getTime());
+            localDate = entity.getEnd().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            sqlDate = java.sql.Date.valueOf(localDate);
 
             preStmt.setDate(3,sqlDate);
             preStmt.setString(4,entity.getName());
 
-            date = entity.getPaperDeadline();
-            sqlDate = new java.sql.Date(date.getTime());
+            localDate = entity.getPaperDeadline().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            sqlDate = java.sql.Date.valueOf(localDate);
 
             preStmt.setDate(5,sqlDate);
             preStmt.setInt(6,entity.getConference().getId());
