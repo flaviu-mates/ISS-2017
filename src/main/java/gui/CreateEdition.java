@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 
 import java.io.IOException;
@@ -22,6 +23,8 @@ import java.util.ResourceBundle;
 
 public class CreateEdition implements Initializable, IGui
 {
+    @FXML
+    private BorderPane root;
     @FXML
     public DatePicker submissionDeadlineField;
     @FXML
@@ -92,7 +95,7 @@ public class CreateEdition implements Initializable, IGui
     @FXML
     public void onBackBtn_clicked(ActionEvent actionEvent)
     {
-        switchToView("createView.fxml", "Session chair");
+        switchToView("create.fxml", "Session chair");
     }
 
 

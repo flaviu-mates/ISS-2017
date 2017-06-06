@@ -2,7 +2,6 @@ package gui;
 
 import client.ClientImpl;
 import common.IGui;
-import domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,19 +39,15 @@ public class CreateConference implements Initializable, IGui
 
     public void onGotoEdition_clicked(ActionEvent actionEvent) throws IOException
     {
-        switchToView("createEdition.fxml", "Create edition");
+        this.switchToView("createEdition.fxml", "Create edition");
     }
 
     void switchToView(String fxmlPath, String title)
     {
-        switchToView(fxmlPath, title, clientCtrl.getLoggedUser());
-    }
-
-    void switchToView(String fxmlPath, String title, User currentUser)
-    {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
         try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
+
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -62,7 +57,7 @@ public class CreateConference implements Initializable, IGui
 
             // inject client controller
             IGui object = loader.getController();
-            object.setCtrl(clientCtrl);
+            object.setCtrl(this.clientCtrl);
 
             stage.show();
         } catch (IOException e) {
@@ -79,26 +74,14 @@ public class CreateConference implements Initializable, IGui
         alert.showAndWait();
     }
 
-    @FXML
-    public void logOutHandler() throws Exception
-    {
-        try {
-            String title = "Conference Management System";
-            clientCtrl.logout(this.clientCtrl.getLoggedUser().getUsername());
-            switchToView("login.fxml", title, null);
-        } catch (Exception ex) {
-            warning("User not logged in!");
-        }
-    }
-
     public void onCreateConf_clicked(ActionEvent actionEvent)
     {
         try {
-            String name = confNameField.getText();
-            clientCtrl.addConference(name);
-            warning("Conference " + name + " added.");
+            String name = this.confNameField.getText();
+            this.clientCtrl.addConference(name);
+            this.warning("Conference " + name + " added.");
         } catch (Exception e) {
-            warning(e.getMessage());
+            this.warning(e.getMessage());
         }
     }
 
@@ -106,9 +89,9 @@ public class CreateConference implements Initializable, IGui
     public void backBtnHandler()
     {
         try {
-            switchToView("create.fxml", "Session chair: " + this.clientCtrl.getLoggedUser().getUsername());
+            this.switchToView("create.fxml", "Session chair: " + this.clientCtrl.getLoggedUser().getUsername());
         } catch (Exception ex) {
-            warning(ex.getMessage());
+            this.warning(ex.getMessage());
         }
     }
 }

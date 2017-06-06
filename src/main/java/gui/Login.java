@@ -97,7 +97,7 @@ public class Login implements IGui
                     renderView("../participant.fxml", "Participant: " + loggedUser.getUsername(), loggedUser);
                     break;
                 case "Session Chair":
-                    renderView("../createView.fxml", "SessionChair:" + loggedUser.getUsername(), loggedUser);
+                    renderView("../create.fxml", "SessionChair:" + loggedUser.getUsername(), loggedUser);
                     break;
                 default:
                     this.warning("Invalid user tag");
