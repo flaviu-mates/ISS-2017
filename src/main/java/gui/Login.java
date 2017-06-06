@@ -26,15 +26,21 @@ public class Login implements IGui
 
     private ClientImpl clientCtrl;
 
-    public Login() {}
+    public Login()
+    {
+    }
 
-    public Login(ClientImpl clientCtrl) {
+    public Login(ClientImpl clientCtrl)
+    {
         this.clientCtrl = clientCtrl;
     }
 
-    public void initialize() {}
+    public void initialize()
+    {
+    }
 
-    public void setClientCtrl(ClientImpl clientCtrl) {
+    public void setClientCtrl(ClientImpl clientCtrl)
+    {
         this.clientCtrl = clientCtrl;
     }
 
@@ -71,7 +77,8 @@ public class Login implements IGui
         }
     }
 
-    public void doLogin() throws Exception {
+    public void doLogin() throws Exception
+    {
         String username = this.textBoxUsername.getText();
         String password = this.textBoxPassword.getText();
 
@@ -101,7 +108,8 @@ public class Login implements IGui
         }
     }
 
-    public void openRegister(ActionEvent event) throws Exception {
+    public void openRegister(ActionEvent event) throws Exception
+    {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setResizable(false);
 
@@ -120,7 +128,8 @@ public class Login implements IGui
     }
 
     @Override
-    public void setCtrl(ClientImpl ctrl) {
+    public void setCtrl(ClientImpl ctrl)
+    {
         this.clientCtrl = ctrl;
     }
 }

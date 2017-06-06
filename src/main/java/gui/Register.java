@@ -29,7 +29,6 @@ public class Register implements IGui
     TextField textBoxLastName;
     @FXML
     TextField textBoxEmail;
-
     @FXML
     ComboBox comboBoxUserTypes;
     @FXML
@@ -37,11 +36,16 @@ public class Register implements IGui
 
     private ClientImpl clientCtrl;
 
-    public Register() {}
+    public Register()
+    {
+    }
 
-    public Register(ClientImpl clientCtrl) {}
+    public Register(ClientImpl clientCtrl)
+    {
+    }
 
-    public void setCtrl(ClientImpl clientCtrl) {
+    public void setCtrl(ClientImpl clientCtrl)
+    {
         this.clientCtrl = clientCtrl;
     }
 
@@ -64,7 +68,8 @@ public class Register implements IGui
     }
 
     @FXML
-    public void registerUser(ActionEvent event) throws Exception {
+    public void registerUser(ActionEvent event) throws Exception
+    {
 
         try {
             String username = this.textBoxUsername.getText();
@@ -91,7 +96,8 @@ public class Register implements IGui
         }
     }
 
-    public void redirectToLogin() {
+    public void redirectToLogin()
+    {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Login.class.getResource("../login.fxml"));

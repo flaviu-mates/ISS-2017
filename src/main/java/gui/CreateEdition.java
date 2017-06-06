@@ -1,6 +1,7 @@
 package gui;
 
 import client.ClientImpl;
+import common.IGui;
 import domain.Conference;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,17 +14,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-/**
- * Created by ciprian on 6/3/2017.
- */
-public class CreateEdition implements Initializable {
+public class CreateEdition implements Initializable, IGui
+{
     @FXML
     public DatePicker submissionDeadlineField;
     @FXML
@@ -43,23 +41,20 @@ public class CreateEdition implements Initializable {
 
     private ObservableList<Conference> conferences;
 
-    private Stage currentStage;
-
-    public void setCtrl(ClientImpl clientCtrl) {
-        this.clientCtrl = clientCtrl;
+    public void setCtrl(ClientImpl ctrl)
+    {
+        this.clientCtrl = ctrl;
     }
 
-    public void setCurrentStage(Stage currentStage) {
-        this.currentStage = currentStage;
-    }
-
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         confNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         conferences = FXCollections.observableArrayList();
         conferencesTable.setItems(conferences);
     }
 
-    private void warning(String message){
+    private void warning(String message)
+    {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setContentText(message);
@@ -68,12 +63,12 @@ public class CreateEdition implements Initializable {
     }
 
     @FXML
-    public void onCreateBtn_clicked(ActionEvent actionEvent) {
+    public void onCreateBtn_clicked(ActionEvent actionEvent)
+    {
         try {
             Conference selectedConference = conferencesTable.getSelectionModel().getSelectedItem();
             String name = editionNameField.getText().toString();
-            if(name==null)
-            {
+            if (name == null) {
                 warning("No name selected");
                 return;
             }
@@ -82,8 +77,7 @@ public class CreateEdition implements Initializable {
             LocalDate submissionDeadline = submissionDeadlineField.getValue();
             LocalDate finalDeadline = finalDeadlineField.getValue();
 
-            if(startDate==null || endDate==null || submissionDeadline==null || finalDeadline==null)
-            {
+            if (startDate == null || endDate == null || submissionDeadline == null || finalDeadline == null) {
                 warning("No enter date");
                 return;
             }
@@ -96,22 +90,20 @@ public class CreateEdition implements Initializable {
     }
 
     @FXML
-    public void onBackBtn_clicked(ActionEvent actionEvent){
+    public void onBackBtn_clicked(ActionEvent actionEvent)
+    {
         switchToView("createView.fxml", "Session chair");
     }
 
 
-    void switchToView(String fxmlPath, String title) {
+    void switchToView(String fxmlPath, String title)
+    {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            currentStage.setScene(scene);
-            currentStage.setTitle(title);
-            currentStage.show();
-            currentStage.sizeToScene();
         } catch (IOException e) {
             e.printStackTrace();
         }

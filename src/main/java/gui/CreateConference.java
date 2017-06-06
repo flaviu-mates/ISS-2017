@@ -19,18 +19,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by ciprian on 6/3/2017.
- */
 public class CreateConference implements Initializable, IGui
 {
     @FXML
     public TextField confNameField;
-
-    private ClientImpl clientCtrl;
-
     @FXML
     private BorderPane root;
+
+    private ClientImpl clientCtrl;
 
     public void setCtrl(ClientImpl ctrl)
     {
@@ -38,11 +34,12 @@ public class CreateConference implements Initializable, IGui
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void initialize(URL location, ResourceBundle resources)
+    {
     }
 
-    public void onGotoEdition_clicked(ActionEvent actionEvent) throws IOException {
+    public void onGotoEdition_clicked(ActionEvent actionEvent) throws IOException
+    {
         switchToView("createEdition.fxml", "Create edition");
     }
 
@@ -73,7 +70,8 @@ public class CreateConference implements Initializable, IGui
         }
     }
 
-    private void warning(String message){
+    private void warning(String message)
+    {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setContentText(message);
@@ -93,7 +91,8 @@ public class CreateConference implements Initializable, IGui
         }
     }
 
-    public void onCreateConf_clicked(ActionEvent actionEvent) {
+    public void onCreateConf_clicked(ActionEvent actionEvent)
+    {
         try {
             String name = confNameField.getText();
             clientCtrl.addConference(name);
@@ -104,10 +103,11 @@ public class CreateConference implements Initializable, IGui
     }
 
     @FXML
-    public void backBtnHandler(){
-        try{
+    public void backBtnHandler()
+    {
+        try {
             switchToView("create.fxml", "Session chair: " + this.clientCtrl.getLoggedUser().getUsername());
-        }catch(Exception ex){
+        } catch (Exception ex) {
             warning(ex.getMessage());
         }
     }
