@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
-   <top>
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
       <HBox prefHeight="131.0" prefWidth="611.0" BorderPane.alignment="CENTER">
          <children>
             <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" />
             <Button mnemonicParsing="false" text="Button" />
          </children>
       </HBox>
-   </top>
-    <left>
         <VBox prefHeight="464.0" prefWidth="532.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Upcoming Editions: ">
@@ -41,8 +34,6 @@
                 </TableView>
             </children>
         </VBox>
-    </left>
-    <right>
         <VBox prefHeight="504.0" prefWidth="314.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Do you want to submit a paper?">
@@ -102,8 +93,6 @@
                 <Insets top="20.0" />
             </BorderPane.margin>
         </VBox>
-    </right>
-    <top>
         <HBox id="logo" prefHeight="169.0" prefWidth="848.0" BorderPane.alignment="CENTER">
             <children>
                 <Button mnemonicParsing="false" onAction="#logOutHandler" prefHeight="25.0" prefWidth="69.0" text="Log Out">
@@ -113,5 +102,4 @@
                 </Button>
             </children>
         </HBox>
-    </top>
-</BorderPane>
+</AnchorPane>

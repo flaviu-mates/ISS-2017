@@ -1,6 +1,7 @@
 package gui;
 
 import client.ClientImpl;
+import common.IGui;
 import domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Register
+public class Register implements IGui
 {
     @FXML
     private AnchorPane root;
@@ -38,7 +39,7 @@ public class Register
 
     public Register(ClientImpl clientCtrl) {}
 
-    public void setClientCtrl(ClientImpl clientCtrl) {
+    public void setCtrl(ClientImpl clientCtrl) {
         this.clientCtrl = clientCtrl;
     }
 
