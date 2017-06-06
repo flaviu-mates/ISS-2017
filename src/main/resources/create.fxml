@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -8,22 +9,22 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button onAction="#logOutHandler" layoutX="76.0" layoutY="49.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="96.0" text="Log Out">
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOutHandler" prefHeight="41.0" prefWidth="96.0" text="Log Out">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="363.0" layoutY="51.0" mnemonicParsing="false" text="Review Request">
+            <Button layoutX="320.0" layoutY="150.0" mnemonicParsing="false" text="Review Request">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="createConf" onAction="#switchToViewConf" layoutX="45.0" layoutY="218.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="158.0" text="Create Conference">
+            <Button fx:id="createConf" layoutX="110.0" layoutY="95.0" mnemonicParsing="false" onAction="#switchToViewConf" prefHeight="62.0" prefWidth="158.0" text="Create Conference">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="createEdition" onAction="#switchToViewEdit" layoutX="350.0" layoutY="218.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="158.0" text="Create Edition">
+            <Button fx:id="createEdition" layoutX="110.0" layoutY="183.0" mnemonicParsing="false" onAction="#switchToViewEdit" prefHeight="62.0" prefWidth="158.0" text="Create Edition">
                <font>
                   <Font size="16.0" />
                </font>
