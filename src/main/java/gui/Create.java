@@ -28,9 +28,6 @@ public class Create implements Initializable, IGui
     @FXML
     private BorderPane root;
 
-    //@FXML
-    //private BorderPane root2;
-
     @FXML
     private Button createConf;
     @FXML
@@ -53,9 +50,9 @@ public class Create implements Initializable, IGui
 
     @FXML
     void switchToViewConf(ActionEvent event) throws Exception {
-//        try {
+        try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("../createConf.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("createConf.fxml"));
 
             Pane pane = loader.load();
             Scene scene = new Scene(pane);
@@ -69,9 +66,9 @@ public class Create implements Initializable, IGui
             object.setCtrl(clientCtrl);
 
             stage.show();
-//        } catch (Exception e) {
-//            this.warning("Cannot redirect!");
-//        }
+        } catch (Exception e) {
+            this.warning("Cannot redirect!");
+        }
     }
 
     @FXML
@@ -106,12 +103,12 @@ public class Create implements Initializable, IGui
     @FXML
     public void logOutHandler() throws Exception
     {
-//        try {
+        try {
             String title = "Conference Management System";
             clientCtrl.logout(clientCtrl.getLoggedUser().getUsername());
             switchToView("login.fxml", title, null);
-//        } catch (Exception ex) {
-//        }
+        } catch (Exception ignored) {
+        }
     }
 
     void switchToView(String fxmlPath, String title)
