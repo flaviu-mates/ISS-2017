@@ -4,7 +4,6 @@ import client.ClientImpl;
 import domain.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +17,7 @@ import org.hibernate.service.spi.ServiceException;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -31,11 +31,13 @@ public class Author implements Initializable {
     @FXML
     private TableView<Session> table;
     @FXML
-    private TableColumn<Session, java.util.Date> dateTableColumn;
+    private TableColumn<Session, Integer> idColumn;
     @FXML
-    private TableColumn<Session, String> locationTableColumn;
+    private TableColumn<Session, Date> dateColumn;
     @FXML
-    private TableColumn<Session, Edition> editionTableColumn;
+    private TableColumn<Session, String> locationColumn;
+    @FXML
+    private TableColumn<Session, Edition> editionColumn;
     @FXML
     private ObservableList<Session> model;
     @FXML
@@ -58,9 +60,10 @@ public class Author implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        locationTableColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        editionTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        editionColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         model = FXCollections.observableArrayList();
         table.setItems(model);
 
