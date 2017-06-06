@@ -52,10 +52,11 @@ public class Create implements Initializable, IGui
     }
 
     @FXML
-    void switchToViewConf(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("../createConf.fxml"));
-        try {
+    void switchToViewConf(ActionEvent event) throws Exception {
+//        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("../createConf.fxml"));
+
             Pane pane = loader.load();
             Scene scene = new Scene(pane);
 
@@ -68,16 +69,17 @@ public class Create implements Initializable, IGui
             object.setCtrl(clientCtrl);
 
             stage.show();
-        } catch (Exception e) {
-            this.warning("Cannot redirect!");
-        }
+//        } catch (Exception e) {
+//            this.warning("Cannot redirect!");
+//        }
     }
 
     @FXML
     void switchToViewEdit(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("../createEdition.fxml"));
         try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("../createEdition.fxml"));
+
             Pane pane = loader.load();
             Scene scene = new Scene(pane);
 
@@ -104,12 +106,12 @@ public class Create implements Initializable, IGui
     @FXML
     public void logOutHandler() throws Exception
     {
-        try {
+//        try {
             String title = "Conference Management System";
             clientCtrl.logout(clientCtrl.getLoggedUser().getUsername());
             switchToView("login.fxml", title, null);
-        } catch (Exception ex) {
-        }
+//        } catch (Exception ex) {
+//        }
     }
 
     void switchToView(String fxmlPath, String title)

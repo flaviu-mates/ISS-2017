@@ -1,6 +1,7 @@
 package gui;
 
 import client.ClientImpl;
+import common.IGui;
 import domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -20,19 +22,19 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class CreateConference implements Initializable {
+public class CreateConference implements Initializable, IGui
+{
     @FXML
     public TextField confNameField;
 
-    private User loggedUser;
-
     private ClientImpl clientCtrl;
 
-    private Stage currentStage;
+    @FXML
+    private BorderPane root;
 
-    public void setCtrl(ClientImpl clientCtrl)
+    public void setCtrl(ClientImpl ctrl)
     {
-        this.clientCtrl = clientCtrl;
+        this.clientCtrl = ctrl;
     }
 
     @Override
@@ -40,34 +42,32 @@ public class CreateConference implements Initializable {
 
     }
 
-    public void setLoggedUser(User loggedUser)
-    {
-        this.loggedUser = loggedUser;
-    }
-
-    public void setCurrentStage(Stage currentStage) {
-        this.currentStage = currentStage;
-    }
-
     public void onGotoEdition_clicked(ActionEvent actionEvent) throws IOException {
         switchToView("createEdition.fxml", "Create edition");
     }
 
-    void switchToView(String fxmlPath, String title) {
-        switchToView(fxmlPath, title, loggedUser);
+    void switchToView(String fxmlPath, String title)
+    {
+        switchToView(fxmlPath, title, clientCtrl.getLoggedUser());
     }
 
-    void switchToView(String fxmlPath, String title, User currentUser) {
+    void switchToView(String fxmlPath, String title, User currentUser)
+    {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            currentStage.setScene(scene);
-            currentStage.setTitle(title);
-            currentStage.show();
-            currentStage.sizeToScene();
+            Stage stage = (Stage) this.root.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setScene(scene);
+
+            // inject client controller
+            IGui object = loader.getController();
+            object.setCtrl(clientCtrl);
+
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,7 +86,7 @@ public class CreateConference implements Initializable {
     {
         try {
             String title = "Conference Management System";
-            clientCtrl.logout(loggedUser.getUsername());
+            clientCtrl.logout(this.clientCtrl.getLoggedUser().getUsername());
             switchToView("login.fxml", title, null);
         } catch (Exception ex) {
             warning("User not logged in!");
@@ -106,7 +106,7 @@ public class CreateConference implements Initializable {
     @FXML
     public void backBtnHandler(){
         try{
-            switchToView("create.fxml","Session chair"+loggedUser.getUsername());
+            switchToView("create.fxml", "Session chair: " + this.clientCtrl.getLoggedUser().getUsername());
         }catch(Exception ex){
             warning(ex.getMessage());
         }
