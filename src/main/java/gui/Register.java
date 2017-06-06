@@ -12,6 +12,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class Register implements IGui
 {
     @FXML
@@ -63,14 +65,19 @@ public class Register implements IGui
 
     @FXML
     public void registerUser(ActionEvent event) throws Exception {
-        String username = this.textBoxUsername.getText();
-        String password = this.textBoxPassword.getText();
-        String email = this.textBoxEmail.getText();
-        String firstname = this.textBoxFirstName.getText();
-        String lastname = this.textBoxLastName.getText();
-        String userType = this.comboBoxUserTypes.getSelectionModel().getSelectedItem().toString();
 
         try {
+            String username = this.textBoxUsername.getText();
+            String password = this.textBoxPassword.getText();
+            String email = this.textBoxEmail.getText();
+            String firstname = this.textBoxFirstName.getText();
+            String lastname = this.textBoxLastName.getText();
+            String userType = this.comboBoxUserTypes.getSelectionModel().getSelectedItem().toString();
+
+            if (Objects.equals(username, "") || Objects.equals(password, "") || Objects.equals(email, "") || Objects
+                    .equals(firstname, "") || Objects.equals(lastname, "") || Objects.equals(userType, "")) {
+                throw new Exception();
+            }
             User user = new User(username, password, email, firstname, lastname, userType);
             this.clientCtrl.addUser(user);
             this.redirectToLogin();
@@ -80,7 +87,7 @@ public class Register implements IGui
             alert.setHeaderText("You can now login!");
             alert.showAndWait();
         } catch (Exception e) {
-            this.warning("Invalid user information");
+            this.warning("Please complete every field!");
         }
     }
 

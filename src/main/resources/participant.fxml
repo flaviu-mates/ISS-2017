@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Participant">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Participant">
    <center>
       <AnchorPane prefHeight="422.0" prefWidth="620.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="36.0" layoutY="28.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="87.0" text="Log Out" />
+            <Button onAction="#logOutHandler" layoutX="36.0" layoutY="28.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="87.0" text="Log Out" />
             <TableView fx:id="editionTable" layoutX="29.0" layoutY="95.0" prefHeight="282.0" prefWidth="456.0">
               <columns>
                 <TableColumn fx:id="editionNameColumn" prefWidth="75.0" text="Edition Name" />

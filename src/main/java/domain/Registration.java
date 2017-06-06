@@ -3,7 +3,7 @@ package domain;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Embeddable
+@Entity(name = "registration")
 public class Registration implements Serializable {
 
     @EmbeddedId

@@ -1,12 +1,9 @@
 package domain;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Embeddable
+@Entity(name = "session_chairs")
 public class SessionChair implements Serializable {
 
     @EmbeddedId
