@@ -85,19 +85,19 @@ public class Login implements IGui
             User loggedUser = this.clientCtrl.login(username, password);
             switch (loggedUser.getTag()) {
                 case "Admin":
-                    renderView("../admin.fxml", "Admin: " + loggedUser.getUsername(), loggedUser);
+                    this.renderView("../admin.fxml", "Admin: " + loggedUser.getUsername(), loggedUser);
                     break;
                 case "Author":
-                    renderView("../author.fxml", "Author: " + loggedUser.getUsername(), loggedUser);
+                    this.renderView("../author.fxml", "Author: " + loggedUser.getUsername(), loggedUser);
                     break;
                 case "Reviewer":
-                    renderView("../ReviewerView.fxml", "Reviewer: " + loggedUser.getUsername(), loggedUser);
+                    this.renderView("../ReviewerView.fxml", "Reviewer: " + loggedUser.getUsername(), loggedUser);
                     break;
                 case "Participant":
-                    renderView("../participant.fxml", "Participant: " + loggedUser.getUsername(), loggedUser);
+                    this.renderView("../participant.fxml", "Participant: " + loggedUser.getUsername(), loggedUser);
                     break;
                 case "Session Chair":
-                    renderView("../create.fxml", "SessionChair: " + loggedUser.getUsername(), loggedUser);
+                    this.renderView("../create.fxml", "SessionChair: " + loggedUser.getUsername(), loggedUser);
                     break;
                 default:
                     this.warning("Invalid user tag!");

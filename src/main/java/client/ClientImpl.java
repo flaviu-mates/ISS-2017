@@ -56,9 +56,9 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addPaper(paper);
     }
 
-    public void addRegistration(Registration registration) throws Exception
+    public boolean addRegistration(Registration registration) throws Exception
     {
-        server.addRegistration(registration);
+        return server.addRegistration(registration);
     }
 
     public List<Conference> getAllConferences() throws RemoteException

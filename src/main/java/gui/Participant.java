@@ -118,9 +118,10 @@ public class Participant implements IGui
             registration.setUserEdition(userEdition);
             registration.setAcquitted(false);
 
-            this.clientCtrl.addRegistration(registration);
-            this.success("Registration for user: " + this.clientCtrl.getLoggedUser().getUsername() +
-                    "to edition: " + edition.getName() +  " added.");
+            if (this.clientCtrl.addRegistration(registration)) {
+                this.success("Registration for user: " + this.clientCtrl.getLoggedUser().getUsername() +
+                             "to edition: " + edition.getName() +  " added.");
+            }
         } catch (Exception e) {
             this.warning(e.getMessage());
         }

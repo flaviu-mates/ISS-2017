@@ -222,8 +222,16 @@ public class ServerImpl implements IServerController {
     }
 
     @Override
-    public void addRegistration(Registration registration) throws Exception {
+    public boolean addRegistration(Registration registration) throws Exception {
+        for(Registration r: registrationService.getAll()) {
+            if (r.getUserEdition().getEdition().getId() == registration.getUserEdition().getEdition().getId()
+                && r.getUserEdition().getUser().getId() == registration.getUserEdition().getUser().getId()) {
+                return false;
+            }
+        }
+
         registrationService.add(registration);
+        return true;
     }
 
     @Override

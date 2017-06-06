@@ -1,5 +1,6 @@
 package repository;
 
+import domain.Conference;
 import domain.Registration;
 import jdbc.JdbcUtils;
 
@@ -7,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationRepository implements IRepository<Integer, Registration> {
@@ -32,18 +34,20 @@ public class RegistrationRepository implements IRepository<Integer, Registration
     }
 
     @Override
-    public void save(Registration entity) {
-        Connection con=dbutils.getConnection();
-        try(PreparedStatement preStmt=con.prepareStatement("insert into registration(acquitted, user_id, edition_id)" +
-                " values (?, ?, ?)")){
-
+    public void save(Registration entity)
+    {
+        Connection con = dbutils.getConnection();
+        try (
+                PreparedStatement preStmt = con.prepareStatement(
+                        "insert into registration(acquitted, user_id, " + "edition_id)" + " values (?, ?, ?)")
+        ) {
             preStmt.setBoolean(1, entity.isAcquitted());
             preStmt.setInt(2, entity.getUserEdition().getUser().getId());
             preStmt.setInt(3, entity.getUserEdition().getEdition().getId());
 
             int result = preStmt.executeUpdate();
-        }catch (SQLException ex){
-            System.out.println("Error DB "+ex);
+        } catch (SQLException ex) {
+            System.out.println("Error DB " + ex);
         }
     }
 
@@ -64,6 +68,23 @@ public class RegistrationRepository implements IRepository<Integer, Registration
 
     @Override
     public List<Registration> findAll() {
-        return null;
-    }
+        Connection con = dbutils.getConnection();
+        List<Registration> registrations = new ArrayList<>();
+        try(PreparedStatement preStmt=con.prepareStatement("select * from registration")) {
+            try(ResultSet result = preStmt.executeQuery()) {
+                List<Registration> list = new ArrayList<>();
+                while (result.next()) {
+                    int uId = result.getInt("user_id");
+                    int eId = result.getInt("edition_id");
+
+//                    Registration m = new Registration(0, uId, eId);
+                    registrations.add(m);
+                }
+
+                return list;
+            }
+        }catch(SQLException ex){
+            System.out.println("Error DB "+ex);
+        }
+        return 0;    }
 }
