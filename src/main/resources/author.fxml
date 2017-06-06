@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
-      <HBox prefHeight="131.0" prefWidth="611.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" />
-            <Button mnemonicParsing="false" text="Button" />
-         </children>
-      </HBox>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
+    <top>
+        <HBox prefHeight="131.0" prefWidth="611.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" />
+                <Button mnemonicParsing="false" text="Button" />
+            </children>
+        </HBox>
+    </top>
+    <left>
         <VBox prefHeight="464.0" prefWidth="532.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Upcoming Editions: ">
@@ -23,10 +30,10 @@
                 </Label>
                 <TableView fx:id="table" maxWidth="453.0" prefHeight="354.0" prefWidth="441.0">
                     <columns>
-                        <TableColumn fx:id="idColumn" prefWidth="86.0" text="Id" />
-                        <TableColumn fx:id="dateColumn" prefWidth="141.0" text="Date" />
-                        <TableColumn fx:id="locationColumn" prefWidth="119.0" text="Location" />
-                        <TableColumn fx:id="editionColumn" prefWidth="105.0" text="Edition" />
+                        <TableColumn fx:id="nameColumn" prefWidth="86.0" text="Name" />
+                        <TableColumn fx:id="submissionDeadlineColumn" prefWidth="141.0" text="SubmissionDeadline" />
+                        <TableColumn fx:id="beginingDateColumn" prefWidth="119.0" text="BegginingDate" />
+                        <TableColumn fx:id="endingDateColumn" prefWidth="105.0" text="EndingDate" />
                     </columns>
                     <VBox.margin>
                         <Insets left="30.0" right="50.0" top="10.0" />
@@ -34,6 +41,8 @@
                 </TableView>
             </children>
         </VBox>
+    </left>
+    <right>
         <VBox prefHeight="504.0" prefWidth="314.0" BorderPane.alignment="CENTER">
             <children>
                 <Label text="Do you want to submit a paper?">
@@ -93,6 +102,8 @@
                 <Insets top="20.0" />
             </BorderPane.margin>
         </VBox>
+    </right>
+    <top>
         <HBox id="logo" prefHeight="169.0" prefWidth="848.0" BorderPane.alignment="CENTER">
             <children>
                 <Button mnemonicParsing="false" onAction="#logOutHandler" prefHeight="25.0" prefWidth="69.0" text="Log Out">
@@ -102,4 +113,6 @@
                 </Button>
             </children>
         </HBox>
-</AnchorPane>
+    </top>
+</BorderPane>
+
