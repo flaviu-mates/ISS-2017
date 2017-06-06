@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class AuthorView implements Initializable {
+public class Author implements Initializable {
     @FXML
     private TextField titleText;
     @FXML
