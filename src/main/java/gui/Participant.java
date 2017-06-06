@@ -20,6 +20,7 @@ import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -44,19 +45,29 @@ public class Participant implements IGui
     @FXML
     private BorderPane root;
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public Participant() {}
+
+    public void initialize() {
         editionNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         endingDateColumn.setCellValueFactory(new PropertyValueFactory<>("begin"));
         beginningDateColumn.setCellValueFactory(new PropertyValueFactory<>("end"));
 
-
         editions = FXCollections.observableArrayList();
         editions.clear();
+    }
+
+    private void initializeEditions() {
+        try {
+            editions = FXCollections.observableArrayList(clientCtrl.getAllEdition());
+        } catch (RemoteException exc) {
+            exc.printStackTrace();
+        }
         editionTable.setItems(editions);
     }
 
     public void setCtrl(ClientImpl ctrl) {
         this.clientCtrl = ctrl;
+        initializeEditions();
     }
 
     @FXML

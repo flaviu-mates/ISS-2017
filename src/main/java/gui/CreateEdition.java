@@ -17,6 +17,7 @@ import javafx.stage.Modality;
 
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -44,6 +45,16 @@ public class CreateEdition implements Initializable, IGui
     public void setCtrl(ClientImpl ctrl)
     {
         this.clientCtrl = ctrl;
+        initializeConferencesTable();
+    }
+
+    private void initializeConferencesTable() {
+        try {
+            conferences = FXCollections.observableArrayList(clientCtrl.getAllConferences());
+            conferencesTable.setItems(conferences);
+        } catch (RemoteException exc) {
+            exc.printStackTrace();
+        }
     }
 
     public void initialize(URL location, ResourceBundle resources)
