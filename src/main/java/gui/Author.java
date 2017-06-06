@@ -1,16 +1,22 @@
-package GUI;
+package gui;
 
 import client.ClientImpl;
 import domain.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.hibernate.service.spi.ServiceException;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,8 +47,14 @@ public class AuthorView implements Initializable {
 
     private User loggedUser;
 
+    private Stage currentStage;
+
     public void setCtrl(ClientImpl clientCtrl) {
         this.clientCtrl = clientCtrl;
+    }
+
+    public void setCurrentStage(Stage currentStage) {
+        this.currentStage = currentStage;
     }
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -115,5 +127,36 @@ public class AuthorView implements Initializable {
         }
 
     }
-}
 
+    @FXML
+    public void logOutHandler() throws Exception
+    {
+        try {
+            String title = "Conference Management System";
+            clientCtrl.logout(loggedUser.getUsername());
+            switchToView("login.fxml", title, null);
+        } catch (Exception ex) {
+            warning("User not logged in!");
+        }
+    }
+
+    void switchToView(String fxmlPath, String title) {
+        switchToView(fxmlPath, title, loggedUser);
+    }
+
+    void switchToView(String fxmlPath, String title, User currentUser) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            currentStage.setScene(scene);
+            currentStage.setTitle(title);
+            currentStage.show();
+            currentStage.sizeToScene();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
