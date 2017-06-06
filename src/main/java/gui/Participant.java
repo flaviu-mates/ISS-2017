@@ -30,6 +30,8 @@ import java.util.ResourceBundle;
 public class Participant implements IGui
 {
     @FXML
+    private BorderPane root;
+    @FXML
     private TableColumn<Edition, Date> endingDateColumn;
     @FXML
     private TableColumn<Edition, Date> beginningDateColumn;
@@ -41,9 +43,6 @@ public class Participant implements IGui
     private TableView<Edition> editionTable;
 
     private ClientImpl clientCtrl;
-
-    @FXML
-    private BorderPane root;
 
     public Participant() {}
 

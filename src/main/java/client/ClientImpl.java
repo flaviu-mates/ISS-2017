@@ -93,8 +93,8 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
 
     public User login(String username, String password) throws Exception
     {
-        loggedUser = new User(username, password);
-        return server.login(loggedUser, this);
+        loggedUser = server.login(new User(username, password), this);
+        return loggedUser;
     }
 
     public void logout(String username)
