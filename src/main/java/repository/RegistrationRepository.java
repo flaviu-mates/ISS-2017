@@ -68,23 +68,23 @@ public class RegistrationRepository implements IRepository<Integer, Registration
 
     @Override
     public List<Registration> findAll() {
-        Connection con = dbutils.getConnection();
-        List<Registration> registrations = new ArrayList<>();
-        try(PreparedStatement preStmt=con.prepareStatement("select * from registration")) {
-            try(ResultSet result = preStmt.executeQuery()) {
-                List<Registration> list = new ArrayList<>();
-                while (result.next()) {
-                    int uId = result.getInt("user_id");
-                    int eId = result.getInt("edition_id");
-
-//                    Registration m = new Registration(0, uId, eId);
-                    registrations.add(m);
-                }
-
-                return list;
-            }
-        }catch(SQLException ex){
-            System.out.println("Error DB "+ex);
-        }
-        return 0;    }
+//        Connection con = dbutils.getConnection();
+//        List<Registration> registrations = new ArrayList<>();
+//        try(PreparedStatement preStmt=con.prepareStatement("select * from registration")) {
+//            try(ResultSet result = preStmt.executeQuery()) {
+//                List<Registration> list = new ArrayList<>();
+//                while (result.next()) {
+//                    int uId = result.getInt("user_id");
+//                    int eId = result.getInt("edition_id");
+//
+////                    Registration m = new Registration(0, uId, eId);
+//                    registrations.add(m);
+//                }
+//
+//                return list;
+//            }
+//        }catch(SQLException ex){
+//            System.out.println("Error DB "+ex);
+//        }
+        return null;}
 }

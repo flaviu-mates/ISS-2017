@@ -17,10 +17,10 @@
     </rowConstraints>
     <AnchorPane fx:id="root" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;"
                 GridPane.columnIndex="1" GridPane.rowIndex="1">
-        <TextField text="Admin" fx:id="textBoxUsername" layoutX="77.0" layoutY="55.0" prefHeight="25.0"
+        <TextField fx:id="textBoxUsername" layoutX="77.0" layoutY="55.0" prefHeight="25.0"
                    prefWidth="175.0" promptText="username"
                    style="-fx-font-family: sans-serif;; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
-        <PasswordField text="parola" fx:id="textBoxPassword" layoutX="77.0" layoutY="95.0" prefHeight="25.0"
+        <PasswordField fx:id="textBoxPassword" layoutX="77.0" layoutY="95.0" prefHeight="25.0"
                        prefWidth="175.0" promptText="password"
                        style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;;"/>
         <Button onAction="#doLogin" layoutX="77.0" layoutY="145.0" mnemonicParsing="false" prefHeight="30.0"
