@@ -1,6 +1,7 @@
 package gui;
 
 import client.ClientImpl;
+import common.IGui;
 import domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class Create implements Initializable
+public class Create implements Initializable, IGui
 {
     @FXML
     private BorderPane root;
@@ -38,10 +38,6 @@ public class Create implements Initializable
 
     private ClientImpl clientCtrl;
 
-    public void setCtrl(ClientImpl clientCtrl) {
-        this.clientCtrl = clientCtrl;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -53,10 +49,6 @@ public class Create implements Initializable
 
     public void onCreateEdition_clicked(ActionEvent actionEvent) {
         switchToViewEdit("createEdition.fxml", "Create edition");
-    }
-
-    void switchToView(String fxmlPath, String title) {
-        switchToView(fxmlPath, title);
     }
 
     private void warning(String message){
@@ -109,5 +101,47 @@ public class Create implements Initializable
         }
     }
 
+    @Override
+    public void setCtrl(ClientImpl ctrl)
+    {
+        this.clientCtrl = ctrl;
+    }
 
+    @FXML
+    public void logOutHandler() throws Exception
+    {
+        try {
+            String title = "Conference Management System";
+            clientCtrl.logout(clientCtrl.getLoggedUser().getUsername());
+            switchToView("login.fxml", title, null);
+        } catch (Exception ex) {
+        }
+    }
+
+    void switchToView(String fxmlPath, String title)
+    {
+        switchToView(fxmlPath, title, clientCtrl.getLoggedUser());
+    }
+
+    void switchToView(String fxmlPath, String title, User currentUser)
+    {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) this.root.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setScene(scene);
+
+            // inject client controller
+            IGui object = loader.getController();
+            object.setCtrl(clientCtrl);
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

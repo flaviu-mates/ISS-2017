@@ -121,6 +121,6 @@ public class Login implements IGui
 
     @Override
     public void setCtrl(ClientImpl ctrl) {
-
+        this.clientCtrl = ctrl;
     }
 }
