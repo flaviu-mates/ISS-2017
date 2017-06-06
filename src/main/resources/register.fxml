@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #76b852;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Register">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+          prefWidth="600.0" style="-fx-background-color: #76b852;" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Register">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="NEVER" maxWidth="329.0" minWidth="10.0" prefWidth="328.0" />
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="72.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="NEVER" maxWidth="329.0" minWidth="10.0" prefWidth="328.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="72.0"/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="9.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="258.0" vgrow="NEVER" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="9.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="258.0" vgrow="NEVER"/>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
     </rowConstraints>
-    <children>
-        <AnchorPane fx:id="root" prefHeight="288.0" prefWidth="328.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <children>
-                <TextField fx:id="textBoxUsername" layoutX="24.0" layoutY="34.0" prefHeight="26.0" prefWidth="140.0" promptText="username" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <PasswordField fx:id="textBoxPassword" layoutX="165.0" layoutY="34.0" prefHeight="26.0" prefWidth="140.0" promptText="password" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <TextField fx:id="textBoxFirstName" layoutX="75.0" layoutY="74.0" prefHeight="25.0" prefWidth="175.0" promptText="firstname" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <TextField fx:id="textBoxLastName" layoutX="75.0" layoutY="116.0" prefHeight="25.0" prefWidth="175.0" promptText="lastname" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <TextField fx:id="textBoxEmail" layoutX="75.0" layoutY="151.0" prefHeight="25.0" prefWidth="175.0" promptText="email" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <ComboBox fx:id="comboBoxUserTypes" layoutX="77.0" layoutY="185.0" prefHeight="25.0" prefWidth="175.0" promptText="type of participant" style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;" />
-                <Button fx:id="buttonRegister" layoutX="77.0" layoutY="216.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="30.0" prefWidth="175.0" style="-fx-font-family: sans-serif; -fx-background-color: #4CAF50; -fx-border: 0; -fx-font-size: 14px; -fx-cursor: pointer;" text="REGISTER" textFill="WHITE" />
-                <Hyperlink layoutX="268.0" layoutY="220.0" onAction="#redirectToLogin" text="Login" textFill="#4caf50" />
-            </children>
-        </AnchorPane>
-    </children>
+    <AnchorPane fx:id="root" prefHeight="288.0" prefWidth="328.0" style="-fx-background-color: #FFFFFF;"
+                GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <TextField fx:id="textBoxUsername" layoutX="24.0" layoutY="34.0" prefHeight="26.0" prefWidth="140.0"
+                   promptText="username"
+                   style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
+        <PasswordField fx:id="textBoxPassword" layoutX="165.0" layoutY="34.0" prefHeight="26.0" prefWidth="140.0"
+                       promptText="password"
+                       style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
+        <TextField fx:id="textBoxFirstName" layoutX="75.0" layoutY="74.0" prefHeight="25.0" prefWidth="175.0"
+                   promptText="firstname"
+                   style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
+        <TextField fx:id="textBoxLastName" layoutX="75.0" layoutY="116.0" prefHeight="25.0" prefWidth="175.0"
+                   promptText="lastname"
+                   style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
+        <TextField fx:id="textBoxEmail" layoutX="75.0" layoutY="151.0" prefHeight="25.0" prefWidth="175.0"
+                   promptText="email"
+                   style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
+        <ComboBox fx:id="comboBoxUserTypes" layoutX="77.0" layoutY="185.0" prefHeight="25.0" prefWidth="175.0"
+                  promptText="type of participant"
+                  style="-fx-font-family: sans-serif; -fx-background-color: #f2f2f2; -fx-font-size: 14px;"/>
+        <Button fx:id="buttonRegister" layoutX="77.0" layoutY="216.0" mnemonicParsing="false"
+                onAction="#registerUser" prefHeight="30.0" prefWidth="175.0"
+                style="-fx-font-family: sans-serif; -fx-background-color: #4CAF50; -fx-border: 0; -fx-font-size: 14px; -fx-cursor: pointer;"
+                text="REGISTER" textFill="WHITE"/>
+        <Hyperlink layoutX="268.0" layoutY="220.0" onAction="#redirectToLogin" text="Login" textFill="#4caf50"/>
+    </AnchorPane>
 </GridPane>

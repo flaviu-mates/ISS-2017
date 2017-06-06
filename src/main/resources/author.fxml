@@ -1,117 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
     <top>
-        <HBox prefHeight="131.0" prefWidth="611.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" />
-                <Button mnemonicParsing="false" text="Button" />
-            </children>
+        <HBox prefHeight="10.0" prefWidth="611.0" BorderPane.alignment="CENTER">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out"/>
+            <Button mnemonicParsing="false" text="Button"/>
         </HBox>
     </top>
     <left>
         <VBox prefHeight="464.0" prefWidth="532.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label text="Upcoming Editions: ">
-                    <VBox.margin>
-                        <Insets left="40.0" top="20.0" />
-                    </VBox.margin>
-                    <font>
-                        <Font name="Myanmar Text Bold" size="12.0" />
-                    </font>
-                </Label>
-                <TableView fx:id="table" maxWidth="453.0" prefHeight="354.0" prefWidth="441.0">
-                    <columns>
-                        <TableColumn fx:id="idColumn" prefWidth="86.0" text="Name" />
-                        <TableColumn fx:id="dateColumn" prefWidth="141.0" text="SubmissionDeadline" />
-                        <TableColumn fx:id="locationColumn" prefWidth="119.0" text="BegginingDate" />
-                        <TableColumn fx:id="editionColumn" prefWidth="105.0" text="EndingDate" />
-                    </columns>
-                    <VBox.margin>
-                        <Insets left="30.0" right="50.0" top="10.0" />
-                    </VBox.margin>
-                </TableView>
-            </children>
+            <Label text="Upcoming Editions: ">
+                <VBox.margin>
+                    <Insets left="40.0" top="20.0"/>
+                </VBox.margin>
+                <font>
+                    <Font name="Myanmar Text Bold" size="12.0"/>
+                </font>
+            </Label>
+            <TableView fx:id="table" maxWidth="453.0" prefHeight="354.0" prefWidth="441.0">
+                <columns>
+                    <TableColumn fx:id="idColumn" prefWidth="86.0" text="Name"/>
+                    <TableColumn fx:id="dateColumn" prefWidth="141.0" text="SubmissionDeadline"/>
+                    <TableColumn fx:id="locationColumn" prefWidth="119.0" text="BegginingDate"/>
+                    <TableColumn fx:id="editionColumn" prefWidth="105.0" text="EndingDate"/>
+                </columns>
+                <VBox.margin>
+                    <Insets left="30.0" right="50.0" top="10.0"/>
+                </VBox.margin>
+            </TableView>
         </VBox>
     </left>
     <right>
         <VBox prefHeight="504.0" prefWidth="314.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label text="Do you want to submit a paper?">
-                    <VBox.margin>
-                        <Insets left="50.0" top="60.0" />
-                    </VBox.margin>
+            <BorderPane.margin>
+                <Insets top="20.0"/>
+            </BorderPane.margin>
+            <Label text="Do you want to submit a paper?">
+                <VBox.margin>
+                    <Insets left="50.0" top="60.0"/>
+                </VBox.margin>
+                <font>
+                    <Font name="Myanmar Text Bold" size="12.0"/>
+                </font>
+            </Label>
+            <HBox prefHeight="72.0" prefWidth="296.0">
+                <Label text="Paper topic:">
+                    <HBox.margin>
+                        <Insets top="15.0"/>
+                    </HBox.margin>
                     <font>
-                        <Font name="Myanmar Text Bold" size="12.0" />
+                        <Font name="Myanmar Text Bold" size="12.0"/>
                     </font>
                 </Label>
-                <HBox prefHeight="72.0" prefWidth="296.0">
-                    <children>
-                        <Label text="Paper topic:">
-                            <HBox.margin>
-                                <Insets top="15.0" />
-                            </HBox.margin>
-                            <font>
-                                <Font name="Myanmar Text Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <ComboBox fx:id="topicComboBox" prefWidth="150.0" promptText="Select an item..">
-                            <HBox.margin>
-                                <Insets left="10.0" top="17.0" />
-                            </HBox.margin>
-                        </ComboBox>
-                    </children>
-                </HBox>
-                <HBox prefHeight="58.0" prefWidth="296.0">
-                    <children>
-                        <Label text="Paper title:">
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                            <font>
-                                <Font name="Myanmar Text Bold" size="12.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="titleText">
-                            <HBox.margin>
-                                <Insets left="15.0" top="2.0" />
-                            </HBox.margin>
-                        </TextField>
-                    </children>
-                </HBox>
-                <HBox prefHeight="77.0" prefWidth="314.0">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#submitPaper" prefHeight="50.0" prefWidth="236.0" text="Register">
-                            <HBox.margin>
-                                <Insets left="30.0" top="10.0" />
-                            </HBox.margin>
-                        </Button>
-                    </children>
-                </HBox>
-                <HBox prefHeight="100.0" prefWidth="200.0" />
-            </children>
-            <BorderPane.margin>
-                <Insets top="20.0" />
-            </BorderPane.margin>
+                <ComboBox fx:id="topicComboBox" prefWidth="150.0" promptText="Select an item..">
+                    <HBox.margin>
+                        <Insets left="10.0" top="17.0"/>
+                    </HBox.margin>
+                </ComboBox>
+            </HBox>
+            <HBox prefHeight="58.0" prefWidth="296.0">
+                <Label text="Paper title:">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <font>
+                        <Font name="Myanmar Text Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="titleText">
+                    <HBox.margin>
+                        <Insets left="15.0" top="2.0"/>
+                    </HBox.margin>
+                </TextField>
+            </HBox>
+            <HBox prefHeight="77.0" prefWidth="314.0">
+                <Button mnemonicParsing="false" onAction="#submitPaper" prefHeight="50.0" prefWidth="236.0"
+                        text="Register">
+                    <HBox.margin>
+                        <Insets left="30.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0"/>
         </VBox>
     </right>
     <top>
-        <HBox id="logo" prefHeight="169.0" prefWidth="848.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button mnemonicParsing="false" onAction="#logOutHandler" prefHeight="25.0" prefWidth="69.0" text="Log Out">
-                    <HBox.margin>
-                        <Insets left="10.0" top="15.0" />
-                    </HBox.margin>
-                </Button>
-            </children>
+        <HBox id="logo" prefHeight="10.0" prefWidth="848.0" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#logOutHandler" prefHeight="25.0" prefWidth="69.0" text="Log Out">
+                <HBox.margin>
+                    <Insets left="10.0" top="15.0"/>
+                </HBox.margin>
+            </Button>
         </HBox>
     </top>
 </BorderPane>

@@ -10,28 +10,27 @@
 <BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateConference">
     <center>
         <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
             <AnchorPane prefHeight="252.0" prefWidth="600.0">
-               <children>
-                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backBtnHandler" text="Back">
-                     <font>
-                        <Font size="27.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="31.0" layoutY="179.0" prefHeight="35.0" prefWidth="152.0" text="Conference name:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="confNameField" layoutX="212.0" layoutY="168.0" prefHeight="62.0" prefWidth="226.0" />
-                  <Button layoutX="471.0" layoutY="174.0" mnemonicParsing="false" onAction="#onCreateConf_clicked" text="Create">
-                     <font>
-                        <Font size="23.0" />
-                     </font>
-                  </Button>
-               </children>
+                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backBtnHandler"
+                        text="Back">
+                    <font>
+                        <Font size="27.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="31.0" layoutY="179.0" prefHeight="35.0" prefWidth="152.0" text="Conference name:">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="confNameField" layoutX="212.0" layoutY="168.0" prefHeight="62.0"
+                           prefWidth="226.0"/>
+                <Button layoutX="471.0" layoutY="174.0" mnemonicParsing="false" onAction="#onCreateConf_clicked"
+                        text="Create">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                </Button>
             </AnchorPane>
-         </children>
         </VBox>
     </center>
 </BorderPane>

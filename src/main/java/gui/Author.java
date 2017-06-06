@@ -1,7 +1,6 @@
 package gui;
 
 import client.ClientImpl;
-import common.IClientController;
 import common.IGui;
 import domain.*;
 import javafx.collections.FXCollections;
@@ -13,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.hibernate.service.spi.ServiceException;
@@ -25,6 +24,8 @@ import java.util.ResourceBundle;
 
 public class Author implements Initializable, IGui
 {
+    @FXML
+    private BorderPane root;
     @FXML
     private TextField titleText;
     @FXML
@@ -48,9 +49,6 @@ public class Author implements Initializable, IGui
 
     private ClientImpl clientCtrl;
 
-    @FXML
-    private AnchorPane root;
-
     public void setCtrl(ClientImpl ctrl)
     {
         this.clientCtrl = ctrl;
@@ -58,19 +56,19 @@ public class Author implements Initializable, IGui
 
     public void initialize(URL location, ResourceBundle resources)
     {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        editionColumn.setCellValueFactory(new PropertyValueFactory<>("edition"));
-        model = FXCollections.observableArrayList();
-        table.setItems(model);
+        this.idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        this.dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        this.locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        this.editionColumn.setCellValueFactory(new PropertyValueFactory<>("edition"));
+        this.model = FXCollections.observableArrayList();
+        this.table.setItems(model);
 
-        topicComboBox.getItems().add("IT");
-        topicComboBox.getItems().add("MATH");
-        topicComboBox.getItems().add("CHEMISTRY");
-        topicComboBox.getItems().add("BIOLOGY");
-        topicComboBox.getItems().add("LITERATURE");
-        topicComboBox.getItems().add("HISTORY");
+        this.topicComboBox.getItems().add("IT");
+        this.topicComboBox.getItems().add("MATH");
+        this.topicComboBox.getItems().add("CHEMISTRY");
+        this.topicComboBox.getItems().add("BIOLOGY");
+        this.topicComboBox.getItems().add("LITERATURE");
+        this.topicComboBox.getItems().add("HISTORY");
     }
 
     private void warning(String message)
@@ -82,49 +80,58 @@ public class Author implements Initializable, IGui
         alert.showAndWait();
     }
 
+    private void success(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(message);
+        alert.setContentText("");
+        alert.initModality(Modality.APPLICATION_MODAL);
+        alert.showAndWait();
+    }
+
     @FXML
     void submitPaper()
     {
-        if (table.getSelectionModel().getSelectedItem() == null) {
-            warning("There is no selected Edition");
+        if (this.table.getSelectionModel().getSelectedItem() == null) {
+            this.warning("No selected Edition!");
             return;
         }
-        if (topicComboBox.getSelectionModel().getSelectedItem() == null) {
-            warning("No topic selected");
+        if (this.topicComboBox.getSelectionModel().getSelectedItem() == null) {
+            this.warning("No topic selected!");
             return;
         }
 
-        if (titleText.getText() == null) {
-            warning("No title selected");
+        if (this.titleText.getText() == null) {
+            this.warning("No title selected!");
             return;
         }
 
         try {
-            String title = titleText.getText();
-            String topic = topicComboBox.getSelectionModel().getSelectedItem();
-            Session session = table.getSelectionModel().getSelectedItem();
-            User author = clientCtrl.getUserById(clientCtrl.getLoggedUser().getId());
-            for (Paper p : clientCtrl.getAllPapers()) {
-                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(clientCtrl.getLoggedUser()
+            String title = this.titleText.getText();
+            String topic = this.topicComboBox.getSelectionModel().getSelectedItem();
+            Session session = this.table.getSelectionModel().getSelectedItem();
+            User author = this.clientCtrl.getUserById(this.clientCtrl.getLoggedUser().getId());
+            for (Paper p : this.clientCtrl.getAllPapers()) {
+                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(this.clientCtrl.getLoggedUser()
                                                                                            .getUsername())) {
-                    //System.out.println("intra la update paper");
-                    Paper paper = new Paper(PaperStatus.InReview, title, topic, session, clientCtrl.getLoggedUser());
+                    Paper paper = new Paper(PaperStatus.InReview, title, topic, session, this.clientCtrl
+                            .getLoggedUser());
                     p.setTopic(topic);
-                    clientCtrl.updatePaper(p);
-                    warning("Paper Succesfully updated");
+                    this.clientCtrl.updatePaper(p);
+                    this.success("Paper successfully updated!");
                     return;
                 }
             }
 
             Paper paper = new Paper(PaperStatus.InReview, title, topic, session, clientCtrl.getLoggedUser());
-            clientCtrl.addPaper(paper);
-            warning("Paper Succesfully added");
+            this.clientCtrl.addPaper(paper);
+            this.success("Paper successfully added!");
         } catch (ServiceException exception) {
-            warning("Paper could not be added");
+            this.success("Paper could not be added!");
         } catch (Exception e) {
-            warning(e.getMessage());
+            this.warning("Cannot submit paper!");
         }
-
     }
 
     @FXML
@@ -132,23 +139,19 @@ public class Author implements Initializable, IGui
     {
         try {
             String title = "Conference Management System";
-            clientCtrl.logout(clientCtrl.getLoggedUser().getUsername());
-            switchToView("login.fxml", title, null);
+            this.clientCtrl.logout(this.clientCtrl.getLoggedUser().getUsername());
+            this.switchToView("login.fxml", title);
         } catch (Exception ex) {
-            warning("User not logged in!");
+            this.warning("Cannot logout!");
         }
     }
 
     void switchToView(String fxmlPath, String title)
     {
-        switchToView(fxmlPath, title, clientCtrl.getLoggedUser());
-    }
-
-    void switchToView(String fxmlPath, String title, User currentUser)
-    {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
         try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource(fxmlPath));
+
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -158,11 +161,11 @@ public class Author implements Initializable, IGui
 
             // inject client controller
             IGui object = loader.getController();
-            object.setCtrl(clientCtrl);
+            object.setCtrl(this.clientCtrl);
 
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            this.warning("Cannot redirect!");
         }
     }
 }

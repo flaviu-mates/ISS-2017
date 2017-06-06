@@ -61,7 +61,7 @@ public class CreateConference implements Initializable, IGui
 
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            this.warning("Cannot redirect!");
         }
     }
 
