@@ -3,18 +3,24 @@ package gui;
 import client.ClientImpl;
 import common.IGui;
 import domain.Edition;
+import domain.Registration;
 import domain.User;
+import domain.UserEdition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
@@ -77,6 +83,46 @@ public class Participant implements IGui
             clientCtrl.logout(clientCtrl.getLoggedUser().getUsername());
             switchToView("login.fxml", title, null);
         } catch (Exception ex) {
+        }
+    }
+
+    private void warning(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText(message);
+        alert.initModality(Modality.APPLICATION_MODAL);
+        alert.showAndWait();
+    }
+
+    private void success(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(message);
+        alert.setContentText("");
+        alert.initModality(Modality.APPLICATION_MODAL);
+        alert.showAndWait();
+    }
+
+    @FXML
+    public void onParticipate(ActionEvent actionEvent) {
+        try {
+            Edition edition = this.editionTable.getSelectionModel().getSelectedItem();
+            Registration registration = new Registration();
+
+            UserEdition userEdition = new UserEdition();
+            userEdition.setUser(this.clientCtrl.getLoggedUser());
+            userEdition.setEdition(edition);
+
+            registration.setUserEdition(userEdition);
+            registration.setAcquitted(false);
+
+            this.clientCtrl.addRegistration(registration);
+            this.success("Registration for user: " + this.clientCtrl.getLoggedUser().getUsername() +
+                    "to edition: " + edition.getName() +  " added.");
+        } catch (Exception e) {
+            this.warning(e.getMessage());
         }
     }
 

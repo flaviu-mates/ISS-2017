@@ -128,6 +128,7 @@ public class EditionRepository implements IRepository<Integer, Edition> {
                     ConferenceRepository r = new ConferenceRepository(dbutils);
                     Conference c = (r.findOne(result.getInt("conference_id")));
                     Edition m = new Edition(id, name, begin, end, c, deadline, paperdeadline);
+                    m.setId(id);
                     editions.add(m);
                 }
             }

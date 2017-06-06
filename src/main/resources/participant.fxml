@@ -22,7 +22,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="508.0" layoutY="236.0" mnemonicParsing="false" text="Participate">
+            <Button layoutX="508.0" layoutY="236.0" mnemonicParsing="false" onAction="#onParticipate" text="Participate">
                <font>
                   <Font size="15.0" />
                </font>
