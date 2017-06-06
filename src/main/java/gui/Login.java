@@ -48,7 +48,7 @@ public class Login implements IGui
 
     void renderView(String resourcePath, String title, User loggedUser) throws Exception
     {
-//        try {
+        try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Login.class.getResource(resourcePath));
 
@@ -66,16 +66,16 @@ public class Login implements IGui
             stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
-//        } catch (Exception e) {
-//            this.warning("Cannot redirect!");
-//        }
+        } catch (Exception e) {
+            this.warning("Cannot redirect!");
+        }
     }
 
     public void doLogin() throws Exception {
         String username = this.textBoxUsername.getText();
         String password = this.textBoxPassword.getText();
 
-//        try {
+        try {
             User loggedUser = this.clientCtrl.login(username, password);
             switch (loggedUser.getTag()) {
                 case "Admin":
@@ -96,9 +96,9 @@ public class Login implements IGui
                 default:
                     this.warning("Invalid user tag");
             }
-//        } catch (Exception e) {
-//            this.warning("Invalid user information");
-//        }
+        } catch (Exception e) {
+            this.warning("Invalid user information");
+        }
     }
 
     public void openRegister(ActionEvent event) throws Exception {
