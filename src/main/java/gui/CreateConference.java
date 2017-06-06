@@ -74,12 +74,22 @@ public class CreateConference implements Initializable, IGui
         alert.showAndWait();
     }
 
+    private void success(String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(message);
+        alert.setContentText("");
+        alert.initModality(Modality.APPLICATION_MODAL);
+        alert.showAndWait();
+    }
+
     public void onCreateConf_clicked(ActionEvent actionEvent)
     {
         try {
             String name = this.confNameField.getText();
             this.clientCtrl.addConference(name);
-            this.warning("Conference " + name + " added.");
+            this.success("Conference " + name + " added.");
         } catch (Exception e) {
             this.warning(e.getMessage());
         }

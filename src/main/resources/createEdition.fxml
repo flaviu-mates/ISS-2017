@@ -35,7 +35,7 @@
                </font>
             </Label>
             <TextField fx:id="editionNameField" layoutX="446.0" layoutY="275.0" prefHeight="33.0" prefWidth="200.0" />
-            <Button layoutX="341.0" layoutY="343.0" mnemonicParsing="false" onAction="#onBackBtn_clicked" prefHeight="46.0" prefWidth="99.0" text="Back">
+            <Button onAction="#backBtnHandler" layoutX="341.0" layoutY="343.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="99.0" text="Back">
                <font>
                   <Font size="18.0" />
                </font>
