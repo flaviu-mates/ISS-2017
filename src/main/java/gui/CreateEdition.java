@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class CreateEditionView implements Initializable {
+public class CreateEdition implements Initializable {
     @FXML
     public DatePicker submissionDeadlineField;
     @FXML
