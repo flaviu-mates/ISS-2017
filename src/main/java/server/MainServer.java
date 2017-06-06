@@ -55,8 +55,12 @@ public class MainServer {
         SessionChairRepository sessionChairRepository = new SessionChairRepository(jdbcUtils);
         SessionChairService sessionChairService = new SessionChairService(sessionChairValidator, sessionChairRepository);
 
+        SessionValidator sessionValidator = new SessionValidator();
+        SessionRepository sessionRepository = new SessionRepository(jdbcUtils);
+        SessionService sessionService = new SessionService(sessionValidator, sessionRepository);
+
         IServerController serverImpl = new ServerImpl(userService, conferenceService, editionService, paperService,
-                                                      reviewService, registrationService, sessionChairService);
+                                                      reviewService, registrationService, sessionChairService, sessionService);
 
         try {
             String name = "CMS";

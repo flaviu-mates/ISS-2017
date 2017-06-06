@@ -70,4 +70,6 @@ public interface IServerController extends Remote
     void deleteReview(Review review) throws RemoteException;
 
     void addRegistration(Registration registration) throws Exception;
+
+    List<Session> getAllSessions() throws RemoteException;
 }

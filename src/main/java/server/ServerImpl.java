@@ -23,6 +23,7 @@ public class ServerImpl implements IServerController {
     private final ReviewService reviewService;
     private final RegistrationService registrationService;
     private final SessionChairService sessionChairService;
+    private final SessionService sessionService;
     private static final int THREADS = Runtime.getRuntime().availableProcessors();
 
     private Map<String, IClientController> clientsMap;
@@ -33,7 +34,8 @@ public class ServerImpl implements IServerController {
                       PaperService paperService,
                       ReviewService reviewService,
                       RegistrationService registrationService,
-                      SessionChairService sessionChairService) {
+                      SessionChairService sessionChairService,
+                      SessionService sessionService) {
         this.userService = userService;
         this.conferenceService = conferenceService;
         this.editionService = editionService;
@@ -41,6 +43,7 @@ public class ServerImpl implements IServerController {
         this.reviewService= reviewService;
         this.registrationService = registrationService;
         this.sessionChairService = sessionChairService;
+        this.sessionService = sessionService;
 
         this.clientsMap = new ConcurrentHashMap<>();
     }
@@ -221,6 +224,11 @@ public class ServerImpl implements IServerController {
     @Override
     public void addRegistration(Registration registration) throws Exception {
         registrationService.add(registration);
+    }
+
+    @Override
+    public List<Session> getAllSessions() throws RemoteException {
+        return sessionService.getAll();
     }
 
     private void notifyAllViewers() {
