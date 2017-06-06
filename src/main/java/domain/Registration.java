@@ -1,40 +1,25 @@
 package domain;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
 public class Registration implements Serializable {
-    @ManyToOne
-    @JoinColumn(name="user_id", referencedColumnName = "id")
-    private User user;
 
-    @ManyToOne
-    @JoinColumn(name="edition_id", referencedColumnName = "id")
-    private Edition edition;
+    @EmbeddedId
+    private UserEdition userEdition;
 
     @Column
     private boolean acquitted;
 
     public Registration() {}
 
-    public User getUser() {
-        return user;
+    public UserEdition getUserEdition() {
+        return userEdition;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Edition getEdition() {
-        return edition;
-    }
-
-    public void setEdition(Edition edition) {
-        this.edition = edition;
+    public void setUserEdition(UserEdition userEdition) {
+        this.userEdition = userEdition;
     }
 
     public boolean isAcquitted() {

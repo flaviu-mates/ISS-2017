@@ -21,5 +21,6 @@
         <mapping class="domain.Paper"/>
         <mapping class="domain.Review"/>
         <mapping class="domain.UserPaper"/>
+        <mapping class="domain.UserEdition"/>
     </session-factory>
 </hibernate-configuration>

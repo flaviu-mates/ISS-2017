@@ -1,35 +1,28 @@
 package domain;
 
 import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Embeddable
 public class SessionChair implements Serializable {
-    @ManyToOne
-    @JoinColumn(name="user_id",referencedColumnName = "id")
-    private User user;
 
-    @ManyToOne
-    @JoinColumn(name="edition_id",referencedColumnName = "id")
-    private Edition edition;
+    @EmbeddedId
+    private UserEdition userEdition;
 
     public SessionChair() {}
 
-    public User getUser() {
-        return user;
+    public SessionChair(UserEdition userEdition) {
+        this.userEdition = userEdition;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public UserEdition getUserEdition() {
+        return userEdition;
     }
 
-    public Edition getEdition() {
-        return edition;
-    }
-
-    public void setEdition(Edition edition) {
-        this.edition = edition;
+    public void setUserEdition(UserEdition userEdition) {
+        this.userEdition = userEdition;
     }
 }

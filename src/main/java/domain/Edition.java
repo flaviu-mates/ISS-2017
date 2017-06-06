@@ -1,7 +1,5 @@
 package domain;
 
-import org.omg.CORBA.INTERNAL;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
