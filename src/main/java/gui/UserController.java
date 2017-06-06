@@ -79,6 +79,7 @@ public class UserController implements Initializable {
 
                 user.setTag(tagComboBox.getSelectionModel().getSelectedItem());
                 clientCtrl.updateUser(user);
+                update();
             }
             catch (Exception exception) {
                 warning(exception.getMessage());
@@ -86,7 +87,6 @@ public class UserController implements Initializable {
         } else {
             warning("There is no User or no Tag selected");
         }
-        update();
     }
 
     public void logoutButtonHandler(){
