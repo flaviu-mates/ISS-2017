@@ -172,6 +172,10 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addSessionChair(sessionChair);
     }
 
+    public List<Session> getAllSessions() throws Exception {
+        return server.getAllSessions();
+    }
+
     public static Date convertToDate(LocalDate localDate) {
         if (localDate == null) {
             return null;
