@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Author">
-   <top>
-      <HBox prefHeight="131.0" prefWidth="611.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" />
-            <Button mnemonicParsing="false" text="Button" />
-         </children>
-      </HBox>
-   </top>
+    <top>
+        <HBox prefHeight="131.0" prefWidth="611.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" />
+                <Button mnemonicParsing="false" text="Button" />
+            </children>
+        </HBox>
+    </top>
     <left>
         <VBox prefHeight="464.0" prefWidth="532.0" BorderPane.alignment="CENTER">
             <children>
@@ -115,3 +115,4 @@
         </HBox>
     </top>
 </BorderPane>
+

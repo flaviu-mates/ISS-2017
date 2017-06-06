@@ -1,10 +1,11 @@
 package gui;
 
 import client.ClientImpl;
+import common.IClientController;
+import common.IGui;
 import domain.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,18 +13,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.hibernate.service.spi.ServiceException;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class Author implements Initializable {
+public class Author implements Initializable, IGui {
     @FXML
     private TextField titleText;
     @FXML
@@ -31,11 +34,13 @@ public class Author implements Initializable {
     @FXML
     private TableView<Session> table;
     @FXML
-    private TableColumn<Session, java.util.Date> dateTableColumn;
+    private TableColumn<Session, Integer> idColumn;
     @FXML
-    private TableColumn<Session, String> locationTableColumn;
+    private TableColumn<Session, Date> dateColumn;
     @FXML
-    private TableColumn<Session, Edition> editionTableColumn;
+    private TableColumn<Session, String> locationColumn;
+    @FXML
+    private TableColumn<Session, Edition> editionColumn;
     @FXML
     private ObservableList<Session> model;
     @FXML
@@ -45,22 +50,18 @@ public class Author implements Initializable {
 
     private ClientImpl clientCtrl;
 
-    private User loggedUser;
+    @FXML
+    private AnchorPane root;
 
-    private Stage currentStage;
-
-    public void setCtrl(ClientImpl clientCtrl) {
-        this.clientCtrl = clientCtrl;
-    }
-
-    public void setCurrentStage(Stage currentStage) {
-        this.currentStage = currentStage;
+    public void setCtrl(ClientImpl ctrl) {
+        this.clientCtrl = ctrl;
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        locationTableColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        editionTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        editionColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         model = FXCollections.observableArrayList();
         table.setItems(model);
 
@@ -70,10 +71,6 @@ public class Author implements Initializable {
         topicComboBox.getItems().add("BIOLOGY");
         topicComboBox.getItems().add("LITERATURE");
         topicComboBox.getItems().add("HISTORY");
-    }
-
-    public void setLoggedUser(User loggedUser) {
-        this.loggedUser = loggedUser;
     }
 
     private void warning(String message){
@@ -104,11 +101,11 @@ public class Author implements Initializable {
             String title = titleText.getText();
             String topic = topicComboBox.getSelectionModel().getSelectedItem();
             Session session = table.getSelectionModel().getSelectedItem();
-            //User author = clientCtrl.getUserById(loggedUser.getId());
+            User author = clientCtrl.getUserById(clientCtrl.getLoggedUser().getId());
             for (Paper p : clientCtrl.getAllPapers()) {
-                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(loggedUser.getUsername())) {
+                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(clientCtrl.getLoggedUser().getUsername())) {
                     //System.out.println("intra la update paper");
-                    Paper paper = new Paper(PaperStatus.InReview, title, topic, session, loggedUser);
+                    Paper paper = new Paper(PaperStatus.InReview, title, topic, session, clientCtrl.getLoggedUser());
                     p.setTopic(topic);
                     clientCtrl.updatePaper(p);
                     warning("Paper Succesfully updated");
@@ -116,7 +113,7 @@ public class Author implements Initializable {
                 }
             }
 
-            Paper paper = new Paper(PaperStatus.InReview, title, topic, session, loggedUser);
+            Paper paper = new Paper(PaperStatus.InReview, title, topic, session, clientCtrl.getLoggedUser());
             clientCtrl.addPaper(paper);
             warning("Paper Succesfully added");
         } catch (ServiceException exception) {
@@ -133,7 +130,7 @@ public class Author implements Initializable {
     {
         try {
             String title = "Conference Management System";
-            clientCtrl.logout(loggedUser.getUsername());
+            clientCtrl.logout(clientCtrl.getLoggedUser().getUsername());
             switchToView("login.fxml", title, null);
         } catch (Exception ex) {
             warning("User not logged in!");
@@ -141,7 +138,7 @@ public class Author implements Initializable {
     }
 
     void switchToView(String fxmlPath, String title) {
-        switchToView(fxmlPath, title, loggedUser);
+        switchToView(fxmlPath, title, clientCtrl.getLoggedUser());
     }
 
     void switchToView(String fxmlPath, String title, User currentUser) {
@@ -151,10 +148,15 @@ public class Author implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            currentStage.setScene(scene);
-            currentStage.setTitle(title);
-            currentStage.show();
-            currentStage.sizeToScene();
+            Stage stage = (Stage) this.root.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setScene(scene);
+
+            // inject client controller
+            IGui object = loader.getController();
+            object.setCtrl(clientCtrl);
+
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

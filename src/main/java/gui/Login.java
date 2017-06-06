@@ -1,6 +1,8 @@
 package gui;
 
 import client.ClientImpl;
+import common.IClientController;
+import common.IGui;
 import domain.User;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -14,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Login
+public class Login implements IGui
 {
     @FXML
     private AnchorPane root;
@@ -44,13 +46,17 @@ public class Login
         alert.showAndWait();
     }
 
-    void renderView(String resourcePath, String title, User loggedUser)
+    void renderView(String resourcePath, String title, User loggedUser) throws Exception
     {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Login.class.getResource(resourcePath));
 
             Pane pane = loader.load();
+
+            IGui object = loader.getController();
+            object.setCtrl(this.clientCtrl);
+
             Scene scene = new Scene(pane);
 
             Stage stage = (Stage) this.root.getScene().getWindow();
@@ -65,7 +71,7 @@ public class Login
         }
     }
 
-    public void doLogin() {
+    public void doLogin() throws Exception {
         String username = this.textBoxUsername.getText();
         String password = this.textBoxPassword.getText();
 
@@ -105,11 +111,16 @@ public class Login
         Pane pane = loader.load();
         // inject the client controller
         Register register = loader.getController();
-        register.setClientCtrl(this.clientCtrl);
+        register.setCtrl(this.clientCtrl);
 
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.setTitle("Register");
         stage.show();
+    }
+
+    @Override
+    public void setCtrl(ClientImpl ctrl) {
+
     }
 }
