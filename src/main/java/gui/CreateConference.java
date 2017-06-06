@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 /**
  * Created by ciprian on 6/3/2017.
  */
-public class CreateConferenceView implements Initializable {
+public class CreateConference implements Initializable {
     @FXML
     public TextField confNameField;
 
