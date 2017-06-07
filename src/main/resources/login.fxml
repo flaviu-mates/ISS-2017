@@ -16,8 +16,8 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
     </rowConstraints>
     <AnchorPane stylesheets="@css/style.css" fx:id="root" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-        <TextField text="Author" fx:id="textBoxUsername" layoutX="77.0" layoutY="55.0" prefHeight="25.0" prefWidth="175.0" promptText="username"/>
-        <PasswordField text="parola" fx:id="textBoxPassword" layoutX="77.0" layoutY="95.0" prefHeight="25.0" prefWidth="175.0" promptText="password"/>
+        <TextField fx:id="textBoxUsername" layoutX="77.0" layoutY="55.0" prefHeight="25.0" prefWidth="175.0" promptText="username"/>
+        <PasswordField fx:id="textBoxPassword" layoutX="77.0" layoutY="95.0" prefHeight="25.0" prefWidth="175.0" promptText="password"/>
         <Button onAction="#doLogin" layoutX="77.0" layoutY="145.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="175.0" text="LOGIN"/>
         <Hyperlink layoutX="165.0" layoutY="198.0" onAction="#openRegister" text="Create an account"/>
         <Label layoutX="60.0" layoutY="201.0" text="Not registered?"/>
