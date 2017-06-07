@@ -197,7 +197,6 @@ public class ServerImpl implements IServerController {
 
     @Override
     public void updateReview(Review review) throws Exception {
-        //TODO: Update review key missing
     }
 
     @Override
@@ -218,7 +217,6 @@ public class ServerImpl implements IServerController {
 
     @Override
     public void deleteReview(Review review) {
-        //TODO: Review key for deletion
     }
 
     @Override
@@ -239,6 +237,12 @@ public class ServerImpl implements IServerController {
         return sessionService.getAll();
     }
 
+    @Override
+    public void addSession(Session session) throws Exception
+    {
+        this.sessionService.add(session);
+    }
+
     private void notifyAllViewers() {
         ExecutorService executor = Executors.newFixedThreadPool(THREADS);
         for (String username : clientsMap.keySet()) {
@@ -248,7 +252,6 @@ public class ServerImpl implements IServerController {
                     try {
                         client.showUpdated();
                     } catch (Exception e) {
-                        //TODO: Something
                         e.getMessage();
                     }
                 });

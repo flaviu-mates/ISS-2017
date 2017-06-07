@@ -72,4 +72,6 @@ public interface IServerController extends Remote
     boolean addRegistration(Registration registration) throws Exception;
 
     List<Session> getAllSessions() throws RemoteException;
+
+    void addSession(Session session) throws Exception;
 }

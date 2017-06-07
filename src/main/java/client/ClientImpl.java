@@ -116,6 +116,11 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addConference(new Conference(conferenceName));
     }
 
+    public void addSession(LocalDate date, String location, Edition edition) throws Exception
+    {
+        server.addSession(new Session(convertToDate(date), location, edition));
+    }
+
     public List<Paper> getPapersToBeReviewed(User user, ReviewStatus status) throws RemoteException
     {
         return server.getPapersToBeReviewed(user, status);

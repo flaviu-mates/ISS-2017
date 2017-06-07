@@ -7,7 +7,7 @@
 <BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateEdition">
    <center>
        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-           <Label layoutX="39.0" layoutY="25.0" prefHeight="43.0" prefWidth="206.0" text="Available conferences:">
+           <Label layoutX="39.0" layoutY="25.0" prefHeight="43.0" prefWidth="206.0" text="Available Conferences:">
               <font>
                   <Font size="20.0"/>
               </font>

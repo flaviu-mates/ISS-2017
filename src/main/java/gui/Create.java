@@ -25,6 +25,8 @@ public class Create implements Initializable, IGui
     private Button createConf;
     @FXML
     private Button createEdition;
+    @FXML
+    private Button createSession;
 
     private ClientImpl clientCtrl;
 
@@ -75,6 +77,12 @@ public class Create implements Initializable, IGui
     void switchToViewEdit(ActionEvent event)
     {
         switchToView("createEdition.fxml");
+    }
+
+    @FXML
+    void switchToViewSession(ActionEvent event) throws Exception
+    {
+        switchToView("createSession.fxml");
     }
 
     @Override
