@@ -12,7 +12,7 @@
         </HBox>
     </top>
     <left>
-        <VBox prefHeight="464.0" prefWidth="532.0" BorderPane.alignment="CENTER">
+        <VBox prefHeight="496.0" prefWidth="242.0" BorderPane.alignment="CENTER">
             <Label text="Upcoming Editions: ">
                 <VBox.margin>
                     <Insets left="40.0" top="20.0"/>
@@ -21,12 +21,9 @@
                     <Font name="Myanmar Text Bold" size="12.0"/>
                 </font>
             </Label>
-            <TableView fx:id="table" maxWidth="453.0" prefHeight="354.0" prefWidth="441.0">
+            <TableView fx:id="sessionTable" maxWidth="160.0" prefHeight="354.0" prefWidth="441.0">
                 <columns>
-                    <TableColumn fx:id="idColumn" prefWidth="86.0" text="Name"/>
-                    <TableColumn fx:id="dateColumn" prefWidth="141.0" text="SubmissionDeadline"/>
-                    <TableColumn fx:id="locationColumn" prefWidth="119.0" text="BegginingDate"/>
-                    <TableColumn fx:id="editionColumn" prefWidth="105.0" text="EndingDate"/>
+                    <TableColumn fx:id="sessionNameColumn" prefWidth="160.0" text="Session name"/>
                 </columns>
                 <VBox.margin>
                     <Insets left="30.0" right="50.0" top="10.0"/>
@@ -35,7 +32,7 @@
         </VBox>
     </left>
     <right>
-        <VBox prefHeight="504.0" prefWidth="314.0" BorderPane.alignment="CENTER">
+        <VBox prefHeight="476.0" prefWidth="690.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
                 <Insets top="20.0"/>
             </BorderPane.margin>
@@ -78,7 +75,7 @@
                 </TextField>
             </HBox>
             <HBox prefHeight="77.0" prefWidth="314.0">
-                <Button mnemonicParsing="false" onAction="#submitPaper" prefHeight="50.0" prefWidth="236.0"
+                <Button mnemonicParsing="false" onAction="#submitPaper" prefHeight="29.0" prefWidth="96.0"
                         text="Register">
                     <HBox.margin>
                         <Insets left="30.0" top="10.0"/>

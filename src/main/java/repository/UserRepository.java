@@ -87,8 +87,7 @@ public class UserRepository implements IRepository<Integer, User> {
                     String tag = result.getString("tag");
                     String username = result.getString("username");
 
-                    User u = new User(id, email, firstname,lastname, password, tag, username);
-                    return u;
+                    return new User(id, username, password, email, firstname,lastname, tag);
                 }
             }
         }catch (SQLException ex){

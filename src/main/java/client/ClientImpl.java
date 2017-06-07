@@ -206,7 +206,7 @@ public class ClientImpl extends UnicastRemoteObject implements IClientController
         server.addSessionChair(sessionChair);
     }
 
-    public List<Session> getAllSessions() throws Exception
+    public List<Session> getAllSessions() throws RemoteException
     {
         return server.getAllSessions();
     }

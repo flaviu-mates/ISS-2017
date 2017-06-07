@@ -19,7 +19,8 @@ import org.hibernate.service.spi.ServiceException;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
+import java.rmi.RemoteException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Author implements Initializable, IGui
@@ -31,17 +32,11 @@ public class Author implements Initializable, IGui
     @FXML
     private Button uploadBtn;
     @FXML
-    private TableView<Session> table;
+    private TableView<Session> sessionTable;
     @FXML
-    private TableColumn<Session, Integer> idColumn;
+    private TableColumn<Session, String> sessionNameColumn;
     @FXML
-    private TableColumn<Session, Date> dateColumn;
-    @FXML
-    private TableColumn<Session, String> locationColumn;
-    @FXML
-    private TableColumn<Session, Edition> editionColumn;
-    @FXML
-    private ObservableList<Session> model;
+    private ObservableList<Session> sessions;
     @FXML
     private ComboBox<String> topicComboBox;
     @FXML
@@ -52,23 +47,31 @@ public class Author implements Initializable, IGui
     public void setCtrl(ClientImpl ctrl)
     {
         this.clientCtrl = ctrl;
+        this.initializeSessionsTable();
+    }
+
+    private void initializeSessionsTable()
+    {
+        try {
+            this.sessions = FXCollections.observableArrayList(this.clientCtrl.getAllSessions());
+            this.sessionTable.setItems(this.sessions);
+        } catch (RemoteException exc) {
+            this.warning("Cannot initialize!");
+        }
     }
 
     public void initialize(URL location, ResourceBundle resources)
     {
-        this.idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        this.dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        this.locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        this.editionColumn.setCellValueFactory(new PropertyValueFactory<>("edition"));
-        this.model = FXCollections.observableArrayList();
-        this.table.setItems(model);
+        this.sessionNameColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        this.sessions = FXCollections.observableArrayList();
+        this.sessionTable.setItems(sessions);
 
         this.topicComboBox.getItems().add("IT");
-        this.topicComboBox.getItems().add("MATH");
-        this.topicComboBox.getItems().add("CHEMISTRY");
-        this.topicComboBox.getItems().add("BIOLOGY");
-        this.topicComboBox.getItems().add("LITERATURE");
-        this.topicComboBox.getItems().add("HISTORY");
+        this.topicComboBox.getItems().add("Math");
+        this.topicComboBox.getItems().add("Chemistry");
+        this.topicComboBox.getItems().add("Biology");
+        this.topicComboBox.getItems().add("Literature");
+        this.topicComboBox.getItems().add("History");
     }
 
     private void warning(String message)
@@ -93,30 +96,29 @@ public class Author implements Initializable, IGui
     @FXML
     void submitPaper()
     {
-        if (this.table.getSelectionModel().getSelectedItem() == null) {
-            this.warning("No selected Edition!");
+        Session session = this.sessionTable.getSelectionModel().getSelectedItem();
+        if (session == null) {
+            this.warning("No Session selected!");
             return;
         }
-        if (this.topicComboBox.getSelectionModel().getSelectedItem() == null) {
+
+        String topic = this.topicComboBox.getSelectionModel().getSelectedItem();
+        if (topic == null || Objects.equals(topic, "")) {
             this.warning("No topic selected!");
             return;
         }
 
-        if (this.titleText.getText() == null) {
-            this.warning("No title selected!");
+        String title = this.titleText.getText();
+        if (Objects.equals(title, "")) {
+            this.warning("No title entered!");
             return;
         }
 
         try {
-            String title = this.titleText.getText();
-            String topic = this.topicComboBox.getSelectionModel().getSelectedItem();
-            Session session = this.table.getSelectionModel().getSelectedItem();
             User author = this.clientCtrl.getUserById(this.clientCtrl.getLoggedUser().getId());
             for (Paper p : this.clientCtrl.getAllPapers()) {
-                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(this.clientCtrl.getLoggedUser()
-                                                                                           .getUsername())) {
-                    Paper paper = new Paper(PaperStatus.InReview, title, topic, session, this.clientCtrl
-                            .getLoggedUser());
+                if (p.getTitle().equals(title) && p.getUser().getUsername().equals(this.clientCtrl.getLoggedUser().getUsername())) {
+                    Paper paper = new Paper(PaperStatus.InReview, title, topic, session, this.clientCtrl.getLoggedUser());
                     p.setTopic(topic);
                     this.clientCtrl.updatePaper(p);
                     this.success("Paper successfully updated!");
